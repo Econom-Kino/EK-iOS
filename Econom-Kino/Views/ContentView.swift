@@ -16,8 +16,7 @@ struct ContentView: View {
             .edgesIgnoringSafeArea(.all)
             
             HStack (spacing: 20) {
-                PosterView(img: "testPoster", name: "1917")
-                PosterView(img: "testPoster", name: "1917")
+                Text("HW")
             }.padding()
         }
     }

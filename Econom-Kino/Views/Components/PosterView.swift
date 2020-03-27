@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 extension View {
     func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
@@ -26,8 +27,8 @@ struct RoundedCorner: Shape {
 }
 
 struct PosterView: View {
-    let img: String
-    let name: String
+    let posterUrl: String
+    let filmName: String
     
     var body: some View {
         ZStack (alignment: .top) {
@@ -38,14 +39,14 @@ struct PosterView: View {
                 .shadow(color: Color.white.opacity(0.7), radius: 10, x: -5, y: -5)
         
             VStack (spacing: 10) {
-                Image(img)
+                WebImage(url: URL(string: posterUrl))
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 179)
                     .cornerRadius(25, corners: [.topLeft, .topRight])
-                Text("1917")
-                    .font(.system(size: 21))
-                    .foregroundColor(Color(#colorLiteral(red: 0.1607843137, green: 0.1607843137, blue: 0.1607843137, alpha: 1)))
+                Text(filmName)
+                    .font(.system(size: 20))
+                    .foregroundColor(Color.mainBlack)
             }
         }.frame(height: 327)
         
@@ -53,7 +54,9 @@ struct PosterView: View {
 }
 
 struct PosterView_Previews: PreviewProvider {
+    var testPosterURL = ""
+    
     static var previews: some View {
-        PosterView(img: "testPoster", name: "1917")
+        PosterView(posterUrl: "https://image.tmdb.org/t/p/w600_and_h900_bestv2/fw5qiCNYdCYiPlB2xJvLEnugZNa.jpg", filmName: "Бладшот")
     }
 }
