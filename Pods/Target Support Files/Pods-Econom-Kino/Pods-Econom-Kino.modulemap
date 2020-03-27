@@ -1,0 +1,6 @@
+framework module Pods_Econom_Kino {
+  umbrella header "Pods-Econom-Kino-umbrella.h"
+
+  export *
+  module * { export * }
+}
