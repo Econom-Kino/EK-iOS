@@ -37,27 +37,31 @@ struct PosterView: View {
     
     var body: some View {
         ZStack (alignment: .leading) {
+            // Backgroun Image
             WebImage(url: URL(string: posterUrl))
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(height: 220.0, alignment: .center)
                 .clipped()
                 .cornerRadius(25)
-                .shadow(color: Color.black.opacity(0.1), radius: 10, x: 7, y: 7)
-                .shadow(color: Color.white.opacity(0.7), radius: 10, x: -5, y: -5)
+                .shadow(color: Color.mainBlack.opacity(0.2), radius: 10, x: 5, y: 5)
             
+            // Blur background image
             BlurView(.dark)
                 .frame(height: 220.0)
                 .cornerRadius(25)
             
         
             HStack (alignment: .top, spacing: 5) {
+                // Movie poster
                 WebImage(url: URL(string: posterUrl))
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(height: 220)
                     .cornerRadius(25, corners: [.topLeft, .bottomLeft])
                     .shadow(color: Color.black.opacity(0.1), radius: 10, x: 7, y: 7)
+                
+                // Movie Info
                 VStack (alignment: .leading, spacing: 15) {
                    Text(filmName)
                     .font(.system(size: 25))
