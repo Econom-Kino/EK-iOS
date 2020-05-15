@@ -18,28 +18,28 @@ struct ContentView: View {
         TabView {
             MoviesView()
                 .tabItem {
-                    Image("afishaIcon")
+                    Image(systemName: "film")
                         .font(.title)
                     Text("Афіша")
                 }.tag(0)
             
             Text("Анонси")
                 .tabItem {
-                    Image("announcesIcon")
+                    Image("film")
                         .font(.title)
                     Text("Анонси")
                 }.tag(1)
             
             Text("Кінотеатри")
                 .tabItem {
-                    Image("cinemasIcon")
+                    Image("film")
                         .font(.title)
                     Text("Кінотеатри")
                 }.tag(2)
             
             Text("Налаштування")
                 .tabItem {
-                    Image("settingsIcon")
+                    Image("film")
                         .font(.title)
                     Text("Налаштування")
                 }.tag(3)

@@ -27,20 +27,14 @@ struct RoundedCorner: Shape {
 }
 
 struct PosterView: View {
-    let posterUrl: String
-    let filmName: String
-    let filmAge = "13+"
-    let filmGenres = "Бойовик, Драма"
-    let filmDuration = 115
-    let filmRating = 8.1
-    let filmLanguage = "English"
+    var movie: Movie
     
     var body: some View {
         
         // Posrer
         ZStack (alignment: .leading) {
             // Backgroun Image
-            WebImage(url: URL(string: posterUrl))
+            WebImage(url: URL(string: movie.poster_link))
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(height: 220.0, alignment: .center)
@@ -49,14 +43,15 @@ struct PosterView: View {
                 .shadow(color: Color.mainBlack.opacity(0.2), radius: 10, x: 5, y: 5)
             
             // Blur background image
-            BlurView(.dark)
+            BlurView(.systemThinMaterialDark)
                 .frame(height: 220.0)
-                .cornerRadius(25)
+                .cornerRadius(50, corners: [.topLeft, .bottomLeft])
+                .cornerRadius(25, corners: [.topRight, .bottomRight])
             
         
             HStack (alignment: .top, spacing: 5) {
                 // Movie poster
-                WebImage(url: URL(string: posterUrl))
+                WebImage(url: URL(string: movie.poster_link))
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(height: 220)
@@ -65,17 +60,17 @@ struct PosterView: View {
                 
                 // Movie Info
                 VStack (alignment: .leading, spacing: 15) {
-                   Text(filmName)
+                    Text(movie.name)
                     .font(.system(size: 25))
                     .fontWeight(.medium)
                     .foregroundColor(Color.white)
                     .lineLimit(1)
                     
-                    Text("Вік: \(filmAge)\n" +
-                         "Жанр: \(filmGenres)\n" +
-                         "Imdb: \(filmRating)\n" +
-                         "Тривалість: \(filmDuration)\n" +
-                         "Мова: \(filmLanguage)")
+                    Text("Вік: 13+\n" +
+                         "Жанр: Test\n" +
+                        "Imdb: \(movie.rating ?? 0.0)\n" +
+                        "Тривалість: \(movie.duration ?? 0)\n" +
+                         "Мова: Українська")
                         .font(.body)
                         .foregroundColor(Color.white)
                 }.padding(10)
@@ -86,9 +81,21 @@ struct PosterView: View {
 }
 
 struct PosterView_Previews: PreviewProvider {
-    var testPosterURL = ""
+    static var testMovie = Movie(id: 1,
+                                 genre_names: [],
+                                 actors_names: [],
+                                 studio_names: [],
+                                 name: "Test",
+                                 trailer_link: "http://image.tmdb.org/t/p/w600_and_h900_bestv2/h5E5kqVGH5DYic95C6EQMFqFbc6.jpg",
+                                 poster_link: "http://image.tmdb.org/t/p/w600_and_h900_bestv2/h5E5kqVGH5DYic95C6EQMFqFbc6.jpg",
+                                 age: false,
+                                 rating: 1.1,
+                                 duration: 10,
+                                 release_date: "20.07.2001",
+                                 country_production: "Ukraine", director: "Yaroslav Kukhar",
+                                 description: "test")
     
     static var previews: some View {
-        PosterView(posterUrl: "https://image.tmdb.org/t/p/w600_and_h900_bestv2/fw5qiCNYdCYiPlB2xJvLEnugZNa.jpg", filmName: "Месники: Завершення")
+        PosterView(movie: testMovie)
     }
 }

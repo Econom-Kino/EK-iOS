@@ -9,22 +9,29 @@
 import SwiftUI
 
 struct MoviesView: View {
-    var testPoster = "https://image.tmdb.org/t/p/w600_and_h900_bestv2/2WtmGXoskpqN41yrJ9QNA3eucSp.jpg"
-    var testMovieName = "Movie: name"
+    
+    @ObservedObject private var moviesVM = MoviesViewModel()
+    
+    init() {
+        UITableView.appearance().separatorColor = .clear
+        UITableView.appearance().backgroundColor = .clear
+        UITableView.appearance().tableFooterView = UIView()
+    }
     
     var body: some View {
         ZStack {
             Color.mainGray
             .edgesIgnoringSafeArea(.all)
             
-            ScrollView {
-                VStack (spacing: 20) {
-                    PosterView(posterUrl: testPoster, filmName: testMovieName)
-                    PosterView(posterUrl: "https://image.tmdb.org/t/p/w600_and_h900_bestv2/uUAD59mJPtbqRZa3eFRPsqFdYhM.jpg", filmName: testMovieName)
-                    PosterView(posterUrl: "https://image.tmdb.org/t/p/w600_and_h900_bestv2/kKecS2oYAwCsaygKZh9NPCiceJG.jpg", filmName: testMovieName)
-                    PosterView(posterUrl: "https://image.tmdb.org/t/p/w600_and_h900_bestv2/J4SD9XDUnCmxBDHh2kSvXcXNtW.jpg", filmName: testMovieName)
-                }.padding()
+            
+            VStack() {
+                List(moviesVM.movies) { movie in
+                    PosterView(movie: movie).padding(.bottom)
+                }
             }
+        }.onAppear {
+            print("Fetching...")
+            self.moviesVM.fetchMovies()
         }
     }
 }

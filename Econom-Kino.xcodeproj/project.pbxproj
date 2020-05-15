@@ -15,8 +15,9 @@
 		84129828242438B0003354EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84129826242438B0003354EB /* LaunchScreen.storyboard */; };
 		841298332424398C003354EB /* PosterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841298322424398C003354EB /* PosterView.swift */; };
 		845CA2C52451FF740036173E /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845CA2C42451FF740036173E /* BlurView.swift */; };
-		846B14D224661B360056CC4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 846B14D124661B360056CC4C /* Assets.xcassets */; };
 		84B0F3942450E7BF001B25BE /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B0F3932450E7BF001B25BE /* Movie.swift */; };
+		84D79E11246F110D00ADE4E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84D79E10246F110D00ADE4E0 /* Assets.xcassets */; };
+		84D79E14246F129900ADE4E0 /* MoviesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D79E13246F129900ADE4E0 /* MoviesViewModel.swift */; };
 		84E69D09242E1DED00C1381E /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E69D08242E1DED00C1381E /* Color.swift */; };
 		948FEA6376FE1953F4D9C66A /* Pods_Econom_Kino.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36253B5EE67DCFB657BD2D69 /* Pods_Econom_Kino.framework */; };
 /* End PBXBuildFile section */
@@ -34,9 +35,10 @@
 		84129829242438B0003354EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		841298322424398C003354EB /* PosterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterView.swift; sourceTree = "<group>"; };
 		845CA2C42451FF740036173E /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
-		846B14D124661B360056CC4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../../.Trash/Assets.xcassets; sourceTree = "<group>"; };
-		846B14D424661B480056CC4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../../../../.Trash/Assets.xcassets; sourceTree = "<group>"; };
 		84B0F3932450E7BF001B25BE /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		84D79E10246F110D00ADE4E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		84D79E12246F121100ADE4E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		84D79E13246F129900ADE4E0 /* MoviesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewModel.swift; sourceTree = "<group>"; };
 		84E69D08242E1DED00C1381E /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		86931386C0D4A435C2E4A7E0 /* Pods-Econom-Kino.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Econom-Kino.debug.xcconfig"; path = "Target Support Files/Pods-Econom-Kino/Pods-Econom-Kino.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -75,7 +77,6 @@
 			children = (
 				8412981A242438A8003354EB /* Econom-Kino */,
 				84129819242438A8003354EB /* Products */,
-				846B14D124661B360056CC4C /* Assets.xcassets */,
 				301CB069D754D6EEB49D8B6F /* Pods */,
 				2DB7CCFEEDA360B54913CD38 /* Frameworks */,
 			);
@@ -93,14 +94,15 @@
 			isa = PBXGroup;
 			children = (
 				84E69D0A242E255F00C1381E /* Models */,
-				8412983424244693003354EB /* Extentions */,
-				841298302424392F003354EB /* Views */,
 				8412982F242438CF003354EB /* View Models */,
-				8412981B242438A8003354EB /* AppDelegate.swift */,
+				841298302424392F003354EB /* Views */,
+				8412983424244693003354EB /* Extentions */,
 				8412981D242438A8003354EB /* SceneDelegate.swift */,
+				8412981B242438A8003354EB /* AppDelegate.swift */,
 				84129826242438B0003354EB /* LaunchScreen.storyboard */,
 				84129829242438B0003354EB /* Info.plist */,
 				84129823242438B0003354EB /* Preview Content */,
+				84D79E10246F110D00ADE4E0 /* Assets.xcassets */,
 			);
 			path = "Econom-Kino";
 			sourceTree = "<group>";
@@ -108,7 +110,7 @@
 		84129823242438B0003354EB /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				846B14D424661B480056CC4C /* Assets.xcassets */,
+				84D79E12246F121100ADE4E0 /* Assets.xcassets */,
 				84129824242438B0003354EB /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
@@ -117,6 +119,7 @@
 		8412982F242438CF003354EB /* View Models */ = {
 			isa = PBXGroup;
 			children = (
+				84D79E13246F129900ADE4E0 /* MoviesViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -225,7 +228,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84129828242438B0003354EB /* LaunchScreen.storyboard in Resources */,
-				846B14D224661B360056CC4C /* Assets.xcassets in Resources */,
+				84D79E11246F110D00ADE4E0 /* Assets.xcassets in Resources */,
 				84129825242438B0003354EB /* Preview Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -283,6 +286,7 @@
 				84022311245361A2001346CA /* MoviesView.swift in Sources */,
 				845CA2C52451FF740036173E /* BlurView.swift in Sources */,
 				84E69D09242E1DED00C1381E /* Color.swift in Sources */,
+				84D79E14246F129900ADE4E0 /* MoviesViewModel.swift in Sources */,
 				84B0F3942450E7BF001B25BE /* Movie.swift in Sources */,
 				8412981E242438A8003354EB /* SceneDelegate.swift in Sources */,
 				84129820242438A8003354EB /* ContentView.swift in Sources */,
@@ -422,7 +426,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 86931386C0D4A435C2E4A7E0 /* Pods-Econom-Kino.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Econom-Kino/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
@@ -442,7 +445,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 80B04DA1A2CCD4FEE9541F28 /* Pods-Econom-Kino.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Econom-Kino/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
