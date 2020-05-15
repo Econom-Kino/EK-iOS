@@ -36,6 +36,8 @@ struct PosterView: View {
     let filmLanguage = "English"
     
     var body: some View {
+        
+        // Posrer
         ZStack (alignment: .leading) {
             // Backgroun Image
             WebImage(url: URL(string: posterUrl))
@@ -80,7 +82,6 @@ struct PosterView: View {
                 Spacer()
             }
         }
-        
     }
 }
 
