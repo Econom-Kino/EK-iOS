@@ -15,6 +15,7 @@ class MoviesViewModel: ObservableObject {
     @Published var movies: [Movie] = []
     
     func fetchMovies() {
+        let startTime = CFAbsoluteTimeGetCurrent()
         movies.removeAll()
         
         guard let url = URL(string: apiUrl) else { return }
@@ -35,9 +36,11 @@ class MoviesViewModel: ObservableObject {
                         print("Error: \(err)")
                     }
                 }
-            } else {
+            }
+            else {
                 print("HTTPURLResponse code: \(response.statusCode)")
             }
         }.resume()
+        print(CFAbsoluteTimeGetCurrent() - startTime)
     }
 }

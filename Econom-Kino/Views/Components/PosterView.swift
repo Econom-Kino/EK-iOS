@@ -27,6 +27,7 @@ struct RoundedCorner: Shape {
 }
 
 struct PosterView: View {
+    @ObservedObject var posterVM = PosterViewModel()
     var movie: Movie
     
     var body: some View {
@@ -66,13 +67,17 @@ struct PosterView: View {
                     .foregroundColor(Color.white)
                     .lineLimit(1)
                     
-                    Text("Вік: 13+\n" +
-                         "Жанр: Test\n" +
-                        "Imdb: \(movie.rating ?? 0.0)\n" +
-                        "Тривалість: \(movie.duration ?? 0)\n" +
-                         "Мова: Українська")
-                        .font(.body)
-                        .foregroundColor(Color.white)
+                    VStack (alignment: .leading, spacing: 5) {
+                        Text("Вік: \(movie.age ?? false ? "18+" : "0+")")
+                        Text("Жанр: \(posterVM.movieGenresToString(genres: movie.genre_names ?? []))")
+                            .lineLimit(1)
+                        Text("Imdb: \(String(format: "%.1f", movie.rating ?? 0.0))")
+                        Text("Тривалість: \(movie.duration ?? 0)")
+                        
+                    }
+                    .font(.body)
+                    .foregroundColor(Color.white)
+                    
                 }.padding(10)
                 Spacer()
             }
@@ -80,20 +85,16 @@ struct PosterView: View {
     }
 }
 
+
 struct PosterView_Previews: PreviewProvider {
     static var testMovie = Movie(id: 1,
-                                 genre_names: [],
-                                 actors_names: [],
-                                 studio_names: [],
+                                 genre_names: [Genre(id: 1, name: "Жанр1", pseudo_id: 11),
+                                               Genre(id: 2, name: "Genre2", pseudo_id: 22)],
                                  name: "Test",
-                                 trailer_link: "http://image.tmdb.org/t/p/w600_and_h900_bestv2/h5E5kqVGH5DYic95C6EQMFqFbc6.jpg",
                                  poster_link: "http://image.tmdb.org/t/p/w600_and_h900_bestv2/h5E5kqVGH5DYic95C6EQMFqFbc6.jpg",
-                                 age: false,
-                                 rating: 1.1,
-                                 duration: 10,
-                                 release_date: "20.07.2001",
-                                 country_production: "Ukraine", director: "Yaroslav Kukhar",
-                                 description: "test")
+                                 age: true,
+                                 rating: 7.2,
+                                 duration: 123)
     
     static var previews: some View {
         PosterView(movie: testMovie)

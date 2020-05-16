@@ -10,22 +10,22 @@ import Foundation
 
 struct Movie: Identifiable, Decodable {
     var id: Int
-    var genre_names: [Genres]?
-    var actors_names: [Actor]?
-    var studio_names: [Studio]?
+    var genre_names: [Genre]?
+//    var actors_names: [Actor]?
+//    var studio_names: [Studio]?
     var name: String
-    var trailer_link: String?
+//    var trailer_link: String?
     var poster_link: String
     var age: Bool?
     var rating: Float?
     var duration: Int?
-    var release_date: String?
-    var country_production: String?
-    var director: String?
-    var description: String?
+//    var release_date: String?
+//    var country_production: String?
+//    var director: String?
+//    var description: String?
 }
 
-struct Genres: Decodable {
+struct Genre: Decodable {
     var id: Int
     var name: String
     var pseudo_id: Int
