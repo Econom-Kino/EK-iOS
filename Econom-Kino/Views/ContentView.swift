@@ -15,34 +15,36 @@ struct ContentView: View {
     }
     
     var body: some View {
-        TabView {
-            MoviesView()
-                .tabItem {
-                    Image(systemName: "film")
-                        .font(.title)
-                    Text("Афіша")
-                }.tag(0)
-            
-            Text("Анонси")
-                .tabItem {
-                    Image("film")
-                        .font(.title)
-                    Text("Анонси")
-                }.tag(1)
-            
-            Text("Кінотеатри")
-                .tabItem {
-                    Image("film")
-                        .font(.title)
-                    Text("Кінотеатри")
-                }.tag(2)
-            
-            Text("Налаштування")
-                .tabItem {
-                    Image("film")
-                        .font(.title)
-                    Text("Налаштування")
-                }.tag(3)
+        NavigationView {
+            TabView {
+                MoviesView()
+                    .tabItem {
+                        Image(systemName: "film")
+                            .font(.system(size: 24))
+                        Text("Афіша")
+                    }.tag(0)
+                
+                Text("Анонси")
+                    .tabItem {
+                        Image(systemName: "film")
+                             .font(.system(size: 24))
+                        Text("Анонси")
+                    }.tag(1)
+                
+                Text("Кінотеатри")
+                    .tabItem {
+                        Image(systemName: "film")
+                             .font(.system(size: 24))
+                        Text("Кінотеатри")
+                    }.tag(2)
+                
+                Text("Налаштування")
+                    .tabItem {
+                        Image(systemName: "film")
+                            .font(.system(size: 24))
+                        Text("Налаштування")
+                    }.tag(3)
+            }
         }.accentColor(Color.mainOrange)
     }
 }

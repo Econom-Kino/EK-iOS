@@ -15,6 +15,7 @@ struct MoviesView: View {
     init() {
         UITableView.appearance().separatorColor = .clear
         UITableView.appearance().backgroundColor = .clear
+        UITableViewCell.appearance().backgroundColor = .clear
         UITableView.appearance().tableFooterView = UIView()
     }
     
@@ -24,15 +25,23 @@ struct MoviesView: View {
             .edgesIgnoringSafeArea(.all)
             
             
-            VStack() {
-                List(moviesVM.movies) { movie in
-                    PosterView(movie: movie).padding(.bottom)
+            List(moviesVM.movies) { movie in
+                ZStack {
+                    PosterView(movie: movie)
+                        .padding(.bottom)
+                    NavigationLink(destination: Text("Movie Details")) {
+                        EmptyView()
+                    }
+                    
                 }
             }
-        }.onAppear {
+        }
+        .onAppear {
             print("Fetching...")
             self.moviesVM.fetchMovies()
         }
+        .navigationBarTitle("Movies")
+        .navigationBarHidden(true)
     }
 }
 
