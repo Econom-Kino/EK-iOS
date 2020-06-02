@@ -12,6 +12,7 @@ let apiUrl = "https://ekinoback.herokuapp.com/movies/today"
 
 
 class MoviesViewModel: ObservableObject {
+    @Published var searchText: String = ""
     @Published var movies: [Movie] = []
     
     func fetchMovies() {

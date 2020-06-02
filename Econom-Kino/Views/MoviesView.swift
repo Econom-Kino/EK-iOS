@@ -20,19 +20,22 @@ struct MoviesView: View {
     }
     
     var body: some View {
+        GeometryReader { geometry in
         ZStack {
             Color.mainGray
             .edgesIgnoringSafeArea(.all)
             
-            
-            List(moviesVM.movies) { movie in
-                ZStack {
-                    PosterView(movie: movie)
-                        .padding(.bottom)
-                    NavigationLink(destination: Text("Movie Details")) {
-                        EmptyView()
+            VStack () {
+                SearchView(moviesVM: self.moviesVM, geometry: geometry)
+                
+                List(self.moviesVM.movies) { movie in
+                    ZStack {
+                        PosterView(movie: movie)
+                            .padding(.bottom)
+                        NavigationLink(destination: Text("Movie Details")) {
+                            EmptyView()
+                        }
                     }
-                    
                 }
             }
         }
@@ -42,6 +45,7 @@ struct MoviesView: View {
         }
         .navigationBarTitle("Movies")
         .navigationBarHidden(true)
+    }
     }
 }
 
