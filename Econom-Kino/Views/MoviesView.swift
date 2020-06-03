@@ -20,13 +20,20 @@ struct MoviesView: View {
     }
     
     var body: some View {
-        GeometryReader { geometry in
+        GeometryReader { g in
         ZStack {
             Color.mainGray
             .edgesIgnoringSafeArea(.all)
             
             VStack () {
-                SearchView(moviesVM: self.moviesVM, geometry: geometry)
+                VStack () {
+                    SearchView(moviesVM: self.moviesVM, geometry: g)
+                    CalendarView(movieVM: self.moviesVM)
+                }
+                .padding(.horizontal)
+                .padding(.top, 10)
+                    
+                
                 
                 List(self.moviesVM.movies) { movie in
                     ZStack {
@@ -40,8 +47,13 @@ struct MoviesView: View {
             }
         }
         .onAppear {
+            print("Generating calendar..")
+            self.moviesVM.makeCalendar()
+            
             print("Fetching...")
-            self.moviesVM.fetchMovies()
+            self.moviesVM.fetchMovies(day: self.moviesVM.week[self.moviesVM.chosenDate].day,
+                                      month: self.moviesVM.week[self.moviesVM.chosenDate].month,
+                                      year: self.moviesVM.week[self.moviesVM.chosenDate].year)
         }
         .navigationBarTitle("Movies")
         .navigationBarHidden(true)

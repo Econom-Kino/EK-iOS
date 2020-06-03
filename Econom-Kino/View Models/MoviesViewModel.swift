@@ -8,14 +8,17 @@
 
 import Foundation
 
-let apiUrl = "https://ekinoback.herokuapp.com/movies/today"
-
 
 class MoviesViewModel: ObservableObject {
     @Published var searchText: String = ""
     @Published var movies: [Movie] = []
+    @Published var week: [Dates] = []
+    @Published var chosenDate: Int = 0
     
-    func fetchMovies() {
+    
+    func fetchMovies(day: String, month: String, year: String) {
+        let apiUrl = "https://ekinoback.herokuapp.com/movies/date/\(year)/\(day)/\(month)"
+        print(apiUrl)
         let startTime = CFAbsoluteTimeGetCurrent()
         movies.removeAll()
         
@@ -43,5 +46,23 @@ class MoviesViewModel: ObservableObject {
             }
         }.resume()
         print(CFAbsoluteTimeGetCurrent() - startTime)
+    }
+    
+    func makeCalendar() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EE"
+        dateFormatter.locale = Locale(identifier: "uk_UA")
+
+
+        for i in 0..<7 {
+            let date = Calendar.current.date(byAdding: .day, value: i, to: Date())!
+            let dateComponents = Calendar.current.dateComponents([.day, .year, .month], from: date)
+            
+            self.week.append(Dates(id: i,
+                              weekDay: dateFormatter.string(from: date).capitalizingFirstLetter(),
+                              day: String(format: "%02d", dateComponents.day!),
+                              month: String(format: "%02d", dateComponents.month!),
+                              year: String(dateComponents.year!)))
+        }
     }
 }

@@ -50,6 +50,6 @@ struct SearchView: View {
             }
             .buttonStyle(PlainButtonStyle())
             
-        }.padding()
+        }
     }
 }
