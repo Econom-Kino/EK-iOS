@@ -18,6 +18,7 @@ struct SearchView: View {
             VStack (spacing: 10) {
                 TextField("Пошук", text:self.$moviesVM.searchText)
                     .padding()
+                    .keyboardType(.default)
             }
             .frame(width: self.geometry.size.width / 1.3, height: 50)
                 .overlay(
@@ -33,7 +34,8 @@ struct SearchView: View {
             
             
             Button(action: {
-                print("Search text: \(self.moviesVM.searchText)")
+                print("Search: \(self.moviesVM.searchText)")
+                self.moviesVM.searchMoviesByName(search: self.moviesVM.searchText)
             }) {
                 ZStack (alignment: .center) {
                     RoundedRectangle(cornerRadius: 25)
