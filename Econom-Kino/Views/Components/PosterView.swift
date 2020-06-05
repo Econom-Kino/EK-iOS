@@ -42,12 +42,15 @@ struct PosterView: View {
                 .clipped()
                 .cornerRadius(25)
                 .shadow(color: Color.mainBlack.opacity(0.2), radius: 10, x: 5, y: 5)
-            
-            // Blur background image
-            BlurView(.systemThinMaterialDark)
+                .blur(radius: 10)
+                .clipShape(RoundedRectangle(cornerRadius: 25))
+
+            Rectangle()
+                .background(Color.mainBlack)
                 .frame(height: 220.0)
                 .cornerRadius(50, corners: [.topLeft, .bottomLeft])
                 .cornerRadius(25, corners: [.topRight, .bottomRight])
+                .opacity(0.15)
             
         
             HStack (alignment: .top, spacing: 5) {
@@ -91,11 +94,11 @@ struct PosterView_Previews: PreviewProvider {
                                  genre_names: [Genre(id: 1, name: "Жанр1", pseudo_id: 11),
                                                Genre(id: 2, name: "Genre2", pseudo_id: 22)],
                                  name: "Test",
-                                 poster_link: "http://image.tmdb.org/t/p/w600_and_h900_bestv2/h5E5kqVGH5DYic95C6EQMFqFbc6.jpg",
+                                 poster_link: "https://image.tmdb.org/t/p/w600_and_h900_bestv2/zHaPsu6lYA183yvy7R4KQDLME9r.jpg",
                                  age: true,
                                  rating: 7.2,
                                  duration: 123)
-    
+
     static var previews: some View {
         PosterView(movie: testMovie)
     }
