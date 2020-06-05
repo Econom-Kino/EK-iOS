@@ -11,7 +11,9 @@ import Foundation
 struct Dates: Identifiable, Hashable {
     let id: Int
     var weekDay: String
+    var fullWeekDay: String
     var day: String
     var month: String
+    var fullMonth: String
     var year: String
 }

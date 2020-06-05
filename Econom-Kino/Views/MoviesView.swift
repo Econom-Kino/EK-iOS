@@ -11,7 +11,9 @@ import SwiftUI
 struct MoviesView: View {
     
     @ObservedObject private var moviesVM = MoviesViewModel()
-
+    @State var show = false
+    
+    
     init() {
         UITableView.appearance().separatorColor = .clear
         UITableView.appearance().backgroundColor = .clear
@@ -19,30 +21,59 @@ struct MoviesView: View {
         UITableView.appearance().tableFooterView = UIView()
     }
     
+    
     var body: some View {
         GeometryReader { g in
         ZStack {
             Color.mainGray
             .edgesIgnoringSafeArea(.all)
             
-            VStack () {
-                VStack () {
-                    SearchView(moviesVM: self.moviesVM, geometry: g)
-                    CalendarView(movieVM: self.moviesVM)
-                }
-                .padding(.horizontal)
-                .padding(.top, 10)
+            VStack (alignment: .leading) {
+                Text("\(self.moviesVM.chooseDateStr)")
+                    .foregroundColor(Color.mainBlack)
+                    .padding(.horizontal)
+                    .padding(.top, 10)
+                
+                if self.show {
+                    VStack () {
+                        SearchView(moviesVM: self.moviesVM, geometry: g)
+                        CalendarView(movieVM: self.moviesVM)
+                    }
+                    .padding(.horizontal)
+                    .padding(.top, 10)
                     
+                }
                 
-                
-                List(self.moviesVM.movies) { movie in
-                    ZStack {
-                        PosterView(movie: movie)
-                            .padding(.bottom)
-                        NavigationLink(destination: Text("Movie Details")) {
-                            EmptyView()
+                List(0..<self.moviesVM.movies.count, id: \.self) { i in
+                    if i == 0 {
+                        ZStack {
+                            PosterView(movie: self.moviesVM.movies[i])
+                                .padding(.bottom)
+                            NavigationLink(destination: Text("Movie Details")) {
+                                EmptyView()
+                            }
+                        }
+                        .onAppear {
+                            withAnimation {
+                                self.show = true
+                            }
+                        }
+                        .onDisappear {
+                            withAnimation {
+                                self.show = false
+                            }
+                        }
+                        
+                    } else {
+                        ZStack {
+                            PosterView(movie: self.moviesVM.movies[i])
+                                .padding(.bottom)
+                            NavigationLink(destination: Text("Movie Details")) {
+                                EmptyView()
+                            }
                         }
                     }
+                    
                 }
             }
         }

@@ -14,6 +14,7 @@ class MoviesViewModel: ObservableObject {
     @Published var movies: [Movie] = []
     @Published var week: [Dates] = []
     @Published var chosenDate: Int = 0
+    @Published var chooseDateStr = ""
     
     
     func fetchMovies(day: String, month: String, year: String) {
@@ -85,9 +86,17 @@ class MoviesViewModel: ObservableObject {
     }
     
     func makeCalendar() {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EE"
-        dateFormatter.locale = Locale(identifier: "uk_UA")
+        let weekDayFormatter = DateFormatter()
+        weekDayFormatter.dateFormat = "EE"
+        weekDayFormatter.locale = Locale(identifier: "uk_UA")
+        
+        let fullWeekDayFormatter = DateFormatter()
+        fullWeekDayFormatter.dateFormat = "EEEE"
+        fullWeekDayFormatter.locale = Locale(identifier: "uk_UA")
+        
+        let fullMonthFormatter = DateFormatter()
+        fullMonthFormatter.dateFormat = "MMMM"
+        fullMonthFormatter.locale = Locale(identifier: "uk_UA")
 
 
         for i in 0..<7 {
@@ -95,10 +104,14 @@ class MoviesViewModel: ObservableObject {
             let dateComponents = Calendar.current.dateComponents([.day, .year, .month], from: date)
             
             self.week.append(Dates(id: i,
-                                   weekDay: dateFormatter.string(from: date).capitalizingFirstLetter(),
+                                   weekDay: weekDayFormatter.string(from: date).capitalizingFirstLetter(),
+                                   fullWeekDay: fullWeekDayFormatter.string(from: date).capitalizingFirstLetter(),
                                    day: String(format: "%02d", dateComponents.day!),
                                    month: String(format: "%02d", dateComponents.month!),
+                                   fullMonth: fullMonthFormatter.string(from: date),
                                    year: String(dateComponents.year!)))
         }
+        
+        self.chooseDateStr = "\(self.week[self.chosenDate].fullWeekDay) \(self.week[self.chosenDate].day) \(self.week[self.chosenDate].fullMonth)"
     }
 }
