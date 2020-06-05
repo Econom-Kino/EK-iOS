@@ -29,11 +29,6 @@ struct MoviesView: View {
             .edgesIgnoringSafeArea(.all)
             
             VStack (alignment: .leading) {
-                Text("\(self.moviesVM.chooseDateStr)")
-                    .foregroundColor(Color.mainBlack)
-                    .padding(.horizontal)
-                    .padding(.top, 10)
-                
                 if self.show {
                     VStack () {
                         SearchView(moviesVM: self.moviesVM, geometry: g)
@@ -42,6 +37,11 @@ struct MoviesView: View {
                     .padding(.horizontal)
                     .padding(.top, 10)
                     
+                } else {
+                    Text("\(self.moviesVM.chooseDateStr)")
+                        .foregroundColor(Color.mainDarkGray)
+                        .padding(.horizontal)
+                        .padding(.top, 10)
                 }
                 
                 List(0..<self.moviesVM.movies.count, id: \.self) { i in
@@ -80,6 +80,7 @@ struct MoviesView: View {
         .onAppear {
             print("Generating calendar..")
             self.moviesVM.makeCalendar()
+            self.moviesVM.updateChoosenDateStr()
             
             print("Init Fetching...")
             self.moviesVM.fetchMovies(day: self.moviesVM.week[self.moviesVM.chosenDate].day,

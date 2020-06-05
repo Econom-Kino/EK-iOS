@@ -22,6 +22,7 @@ struct CalendarView: View {
                     self.movieVM.fetchMovies(day: self.movieVM.week[self.movieVM.chosenDate].day,
                                               month: self.movieVM.week[self.movieVM.chosenDate].month,
                                               year: self.movieVM.week[self.movieVM.chosenDate].year)
+                    self.movieVM.updateChoosenDateStr()
                 }){
                     ZStack (alignment: .center) {
                         if self.movieVM.chosenDate == day.id {
@@ -51,7 +52,7 @@ struct CalendarView: View {
                             
                         }
                         .frame(width: 45, height: 45)
-                        .foregroundColor(["Сб", "Нд"].contains(day.weekDay) ? Color.red : Color.mainBlack)
+                        .foregroundColor(["Сб", "Нд"].contains(day.weekDay) ? Color.red : Color.mainDarkGray)
                         
                     }
                 }

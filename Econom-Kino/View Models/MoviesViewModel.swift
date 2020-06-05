@@ -82,7 +82,6 @@ class MoviesViewModel: ObservableObject {
                 print("HTTPURLResponse code: \(response.statusCode)")
             }
         }.resume()
-        
     }
     
     func makeCalendar() {
@@ -111,7 +110,9 @@ class MoviesViewModel: ObservableObject {
                                    fullMonth: fullMonthFormatter.string(from: date),
                                    year: String(dateComponents.year!)))
         }
-        
+    }
+    
+    func updateChoosenDateStr() {
         self.chooseDateStr = "\(self.week[self.chosenDate].fullWeekDay) \(self.week[self.chosenDate].day) \(self.week[self.chosenDate].fullMonth)"
     }
 }
