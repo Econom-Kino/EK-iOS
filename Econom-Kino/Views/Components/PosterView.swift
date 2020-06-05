@@ -42,7 +42,7 @@ struct PosterView: View {
                 .clipped()
                 .cornerRadius(25)
                 .shadow(color: Color.mainBlack.opacity(0.2), radius: 10, x: 5, y: 5)
-                .blur(radius: 10)
+                .blur(radius: 8)
                 .clipShape(RoundedRectangle(cornerRadius: 25))
 
             Rectangle()
@@ -50,7 +50,7 @@ struct PosterView: View {
                 .frame(height: 220.0)
                 .cornerRadius(50, corners: [.topLeft, .bottomLeft])
                 .cornerRadius(25, corners: [.topRight, .bottomRight])
-                .opacity(0.15)
+                .opacity(0.25)
             
         
             HStack (alignment: .top, spacing: 5) {
@@ -76,6 +76,7 @@ struct PosterView: View {
                             .lineLimit(1)
                         Text("Imdb: \(String(format: "%.1f", movie.rating ?? 0.0))")
                         Text("Тривалість: \(movie.duration ?? 0)")
+//                        Text("uuid: \(movie.uuid)")
                         
                     }
                     .font(.body)
