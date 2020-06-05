@@ -17,6 +17,7 @@ struct CalendarView: View {
         HStack (spacing: 15) {
             ForEach(self.movieVM.week, id: \.self) {day in
                 Button(action: {
+                    print("\(day.day).\(day.month): Fetching....")
                     self.movieVM.chosenDate = day.id
                     self.movieVM.fetchMovies(day: self.movieVM.week[self.movieVM.chosenDate].day,
                                               month: self.movieVM.week[self.movieVM.chosenDate].month,

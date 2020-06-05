@@ -11,7 +11,7 @@ import SwiftUI
 struct MoviesView: View {
     
     @ObservedObject private var moviesVM = MoviesViewModel()
-    
+
     init() {
         UITableView.appearance().separatorColor = .clear
         UITableView.appearance().backgroundColor = .clear
@@ -50,7 +50,7 @@ struct MoviesView: View {
             print("Generating calendar..")
             self.moviesVM.makeCalendar()
             
-            print("Fetching...")
+            print("Init Fetching...")
             self.moviesVM.fetchMovies(day: self.moviesVM.week[self.moviesVM.chosenDate].day,
                                       month: self.moviesVM.week[self.moviesVM.chosenDate].month,
                                       year: self.moviesVM.week[self.moviesVM.chosenDate].year)
