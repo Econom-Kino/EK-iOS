@@ -11,9 +11,7 @@ import SwiftUI
 struct MoviesView: View {
     
     @ObservedObject private var moviesVM = MoviesViewModel()
-    @State var show = false
-    
-    
+
     init() {
         UITableView.appearance().separatorColor = .clear
         UITableView.appearance().backgroundColor = .clear
@@ -29,7 +27,7 @@ struct MoviesView: View {
             .edgesIgnoringSafeArea(.all)
             
             VStack (alignment: .leading) {
-                if self.show {
+                if self.moviesVM.show || self.moviesVM.movies.count == 0 {
                     VStack () {
                         SearchView(moviesVM: self.moviesVM, geometry: g)
                         CalendarView(movieVM: self.moviesVM)
@@ -42,6 +40,7 @@ struct MoviesView: View {
                         .foregroundColor(Color.mainDarkGray)
                         .padding(.horizontal)
                         .padding(.top, 10)
+                        .transition(AnyTransition.opacity.combined(with: .move(edge: .top)))
                 }
                 
                 List(0..<self.moviesVM.movies.count, id: \.self) { i in
@@ -55,12 +54,12 @@ struct MoviesView: View {
                         }
                         .onAppear {
                             withAnimation {
-                                self.show = true
+                                self.moviesVM.show = true
                             }
                         }
                         .onDisappear {
                             withAnimation {
-                                self.show = false
+                                self.moviesVM.show = false
                             }
                         }
                         
