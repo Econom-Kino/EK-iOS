@@ -21,15 +21,13 @@ struct MoviesView: View {
     
     
     var body: some View {
-        GeometryReader { g in
         ZStack {
-            Color.mainGray
-            .edgesIgnoringSafeArea(.all)
+            Color.mainGray.edgesIgnoringSafeArea(.all)
             
             VStack (alignment: .leading) {
                 if self.moviesVM.show || self.moviesVM.movies.count == 0 {
                     VStack () {
-                        SearchView(moviesVM: self.moviesVM, geometry: g)
+                        SearchView(moviesVM: self.moviesVM)
                         CalendarView(movieVM: self.moviesVM)
                     }
                     .padding(.horizontal)
@@ -88,7 +86,6 @@ struct MoviesView: View {
         }
         .navigationBarTitle("Movies")
         .navigationBarHidden(true)
-    }
     }
 }
 

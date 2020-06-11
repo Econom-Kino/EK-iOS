@@ -16,13 +16,16 @@ struct CalendarView: View {
         ScrollView(.horizontal) {
         HStack (spacing: 15) {
             ForEach(self.movieVM.week, id: \.self) {day in
+                
                 Button(action: {
                     print("\(day.day).\(day.month): Fetching....")
+                    
                     self.movieVM.chosenDate = day.id
                     self.movieVM.fetchMovies(day: self.movieVM.week[self.movieVM.chosenDate].day,
-                                              month: self.movieVM.week[self.movieVM.chosenDate].month,
-                                              year: self.movieVM.week[self.movieVM.chosenDate].year)
+                                             month: self.movieVM.week[self.movieVM.chosenDate].month,
+                                             year: self.movieVM.week[self.movieVM.chosenDate].year)
                     self.movieVM.updateChoosenDateStr()
+                    
                 }){
                     ZStack (alignment: .center) {
                         if self.movieVM.chosenDate == day.id {
@@ -39,10 +42,10 @@ struct CalendarView: View {
                             )
                         } else {
                             RoundedRectangle(cornerRadius: 10)
-                            .fill(Color.mainGray)
-                            .frame(width: 50, height: 50)
-                            .shadow(color: Color.mainBlack.opacity(0.1), radius: 7, x: 5, y: 5)
-                            .shadow(color: Color.white.opacity(0.7), radius: 7, x: -5, y: -5)
+                                .fill(Color.mainGray)
+                                .frame(width: 50, height: 50)
+                                .shadow(color: Color.mainBlack.opacity(0.1), radius: 7, x: 5, y: 5)
+                                .shadow(color: Color.white.opacity(0.7), radius: 7, x: -5, y: -5)
                         }
                         VStack {
                             Text("\(day.weekDay)")
@@ -51,15 +54,15 @@ struct CalendarView: View {
                                 .font(.system(size: 12))
                             
                         }
-                        .frame(width: 45, height: 45)
-                        .foregroundColor(["Сб", "Нд"].contains(day.weekDay) ? Color.red : Color.mainDarkGray)
+                         .frame(width: 45, height: 45)
+                         .foregroundColor(["Сб", "Нд"].contains(day.weekDay) ? Color.red : Color.mainDarkGray)
                         
                     }
                 }
             }
         }
-        .padding(.top, 10)
-        .padding(.bottom, 15)
+         .padding(.top, 10)
+         .padding(.bottom, 15)
         }
     }
 }

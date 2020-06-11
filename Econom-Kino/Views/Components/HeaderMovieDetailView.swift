@@ -11,7 +11,6 @@ import SDWebImageSwiftUI
 
 struct HeaderMovieDetailView: View {
     @State var show = true
-    var geometry: GeometryProxy
     
     var body: some View {
         VStack () {
@@ -20,7 +19,7 @@ struct HeaderMovieDetailView: View {
                 .fontWeight(.medium)
                 .foregroundColor(Color.white)
                 .lineLimit(self.show ? 10 : 1)
-                .frame(width: geometry.size.width-30,alignment: .leading)
+                .frame(width: UIScreen.width - 30, alignment: .leading)
                 .padding(.leading, 30)
             
             if self.show {
@@ -28,7 +27,7 @@ struct HeaderMovieDetailView: View {
                     WebImage(url: URL(string: "https://image.tmdb.org/t/p/w600_and_h900_bestv2/w0TeZ0oGijYVubQYAakm7eo41Gn.jpg"))
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: geometry.size.width / 2.3)
+                        .frame(width: UIScreen.width / 2.3)
                         .cornerRadius(25)
                         .shadow(color: Color.white.opacity(0.2), radius: 10, x: 2, y: 2)
                     Button(action: {
@@ -38,7 +37,7 @@ struct HeaderMovieDetailView: View {
                             Rectangle()
                                 .fill(Color.mainGray)
                                 .opacity(0.65)
-                                .frame(width: geometry.size.width / 2.3, height: 45)
+                                .frame(width: UIScreen.width / 2.3, height: 45)
                                 .cornerRadius(25, corners: [.bottomRight, .bottomLeft])
                             HStack (spacing: 30) {
                                 Image(systemName: "play.fill")
@@ -61,20 +60,19 @@ struct HeaderMovieDetailView: View {
             
             
         }.padding()
-        .frame(width: geometry.size.width)
-        .background(HeaderBgView(g: geometry))
+        .frame(width: UIScreen.width)
+        .background(HeaderBgView())
     }
 }
 
 struct HeaderBgView: View {
-    var g: GeometryProxy
     
     var body: some View {
         ZStack {
             WebImage(url: URL(string:      "https://image.tmdb.org/t/p/w600_and_h900_bestv2/w0TeZ0oGijYVubQYAakm7eo41Gn.jpg"))
                 .resizable()
                 .blur(radius: 12)
-                .frame(width: g.size.width+50)
+                .frame(width: UIScreen.width + 50)
                 .aspectRatio(contentMode: .fit)
                 .clipped()
             Rectangle()

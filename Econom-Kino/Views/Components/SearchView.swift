@@ -10,7 +10,6 @@ import SwiftUI
 
 struct SearchView: View {
     @ObservedObject var moviesVM: MoviesViewModel
-    var geometry: GeometryProxy
     
     var body: some View {
         HStack () {
@@ -20,7 +19,7 @@ struct SearchView: View {
                     .padding()
                     .keyboardType(.default)
             }
-            .frame(width: self.geometry.size.width / 1.3, height: 50)
+            .frame(width: UIScreen.width / 1.3, height: 50)
                 .overlay(
                     RoundedRectangle(cornerRadius: 25)
                         .stroke(Color.mainGray, lineWidth: 4)
@@ -31,7 +30,6 @@ struct SearchView: View {
                 )
 
             Spacer()
-            
             
             Button(action: {
                 print("Search: \(self.moviesVM.searchText)")

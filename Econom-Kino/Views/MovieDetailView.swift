@@ -13,24 +13,20 @@ struct MovieDetailView: View {
     @State var show = true
     
     var body: some View {
-        GeometryReader { g in
             ZStack (alignment: .top) {
-            Color.mainGray
-                .edgesIgnoringSafeArea(.all)
-                
-            VStack () {
-                HeaderMovieDetailView(geometry: g)
-                    .padding(.top, -65)
-                
-                ScrollView {
-                   MovieDescriptionView()
+                Color.mainGray
+                    .edgesIgnoringSafeArea(.all)
+                    
+                VStack () {
+                    
+                    HeaderMovieDetailView()
+                        .padding(.top, -65)
+                    
+                    ScrollView {
+                       MovieDescriptionView()
+                    }
                 }
-                
             }
-                
-            }
-            
-        }
     }
 }
 
