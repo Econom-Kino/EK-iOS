@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct MovieDetailBar: View {
+    @Binding var show: Bool
     @Binding var index: Int
     @Binding var offset : CGFloat
     var width = UIScreen.main.bounds.width
@@ -31,6 +32,7 @@ struct MovieDetailBar: View {
                 Button(action: {
                     print("Опис")
                     withAnimation {
+                        self.show = true
                         self.index = 1
                         self.offset = self.width
                     }
@@ -48,14 +50,16 @@ struct MovieDetailBar: View {
                         }
                         
                         Text("Опис")
-                            .fontWeight(index == 1 ? .bold : .regular)
+                            .fontWeight(.medium)
                             .foregroundColor(index == 1 ? Color.mainOrange : Color.mainDarkGray)
+                        
                     }.frame(width: UIScreen.width/2 - 10)
                 }.buttonStyle(PlainButtonStyle())
                 
                Button(action: {
                     print("Сеанси")
                     withAnimation {
+                        self.show = false
                         self.index = 2
                         self.offset = 0
                     }
@@ -73,7 +77,7 @@ struct MovieDetailBar: View {
                        }
                        
                        Text("Сеанси")
-                           .fontWeight(index == 2 ? .bold : .regular)
+                           .fontWeight(.medium)
                            .foregroundColor(index == 2 ? Color.mainOrange : Color.mainDarkGray)
                    }.frame(width: UIScreen.width/2 - 10)
                }.buttonStyle(PlainButtonStyle())
@@ -85,6 +89,6 @@ struct MovieDetailBar: View {
 
 struct MovieDetailBar_Previews: PreviewProvider {
     static var previews: some View {
-        MovieDetailBar(index: .constant(1), offset: .constant(UIScreen.width))
+        MovieDetailBar(show: .constant(true), index: .constant(1), offset: .constant(UIScreen.width))
     }
 }

@@ -46,7 +46,7 @@ struct MoviesView: View {
                         ZStack {
                             PosterView(movie: self.moviesVM.movies[i])
                                 .padding(.bottom)
-                            NavigationLink(destination: MovieDetailView()) {
+                            NavigationLink(destination: MovieDetailView(movie: self.moviesVM.movies[i])) {
                                 EmptyView()
                             }
                         }
@@ -65,7 +65,7 @@ struct MoviesView: View {
                         ZStack {
                             PosterView(movie: self.moviesVM.movies[i])
                                 .padding(.bottom)
-                            NavigationLink(destination: MovieDetailView()) {
+                            NavigationLink(destination: MovieDetailView(movie: self.moviesVM.movies[i])) {
                                 EmptyView()
                             }
                         }

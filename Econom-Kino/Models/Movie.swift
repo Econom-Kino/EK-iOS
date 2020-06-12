@@ -11,16 +11,6 @@ import Foundation
 struct Movie: Identifiable, Decodable {
     var id: Int
     var genre_names: [Genre]?
-    var name: String
-    var poster_link: String
-    var age: Bool?
-    var rating: Float?
-    var duration: Int?
-}
-
-struct MovieDetail: Identifiable, Decodable {
-    var id: Int
-    var genre_names: [Genre]?
     var actors_names: [Actor]?
     var studio_names: [Studio]?
     var name: String
@@ -33,6 +23,12 @@ struct MovieDetail: Identifiable, Decodable {
     var country_production: String?
     var director: String?
     var description: String?
+    
+    init() {
+        self.id = -1
+        self.name = "Test"
+        self.poster_link = "https://image.tmdb.org/t/p/w600_and_h900_bestv2/w0TeZ0oGijYVubQYAakm7eo41Gn.jpg"
+    }
 }
 
 struct Genre: Decodable {
@@ -41,12 +37,12 @@ struct Genre: Decodable {
     var pseudo_id: Int
 }
 
-struct Actor: Decodable {
+struct Actor: Decodable, Hashable {
     var id: Int
     var name: String
 }
 
-struct Studio: Decodable {
+struct Studio: Decodable, Hashable{
     var id: Int
     var name: String
 }

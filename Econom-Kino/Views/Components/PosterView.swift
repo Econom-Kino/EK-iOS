@@ -91,14 +91,7 @@ struct PosterView: View {
 
 
 struct PosterView_Previews: PreviewProvider {
-    static var testMovie = Movie(id: 1,
-                                 genre_names: [Genre(id: 1, name: "Жанр1", pseudo_id: 11),
-                                               Genre(id: 2, name: "Genre2", pseudo_id: 22)],
-                                 name: "Test",
-                                 poster_link: "https://image.tmdb.org/t/p/w600_and_h900_bestv2/zHaPsu6lYA183yvy7R4KQDLME9r.jpg",
-                                 age: true,
-                                 rating: 7.2,
-                                 duration: 123)
+    static var testMovie = Movie()
 
     static var previews: some View {
         PosterView(movie: testMovie)
