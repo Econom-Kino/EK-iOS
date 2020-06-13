@@ -15,6 +15,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let moviesVM = MoviesViewModel.shared
+        print("Generating calendar..")
+        moviesVM.makeCalendar()
+        moviesVM.updateChoosenDateStr()
+        
+        print("Init Fetching...")
+        moviesVM.fetchMovies(day: moviesVM.week[moviesVM.chosenDate].day,
+                             month: moviesVM.week[moviesVM.chosenDate].month,
+                             year: moviesVM.week[moviesVM.chosenDate].year)
         return true
     }
 

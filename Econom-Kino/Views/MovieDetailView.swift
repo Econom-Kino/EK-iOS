@@ -27,17 +27,27 @@ struct MovieDetailView: View {
             VStack () {
                 HeaderMovieDetailView(movie: $movie, show: $show)
                     .padding(.top, -65)
+                    .highPriorityGesture(DragGesture()
+                        .onChanged { value in
+                            withAnimation {
+                                if value.translation.height > 0 {
+                                    self.show = true
+                                }
+                                if -value.translation.height > 50 {
+                                    self.show = false
+                                }
+                            }
+                        }
+                    )
                 
                 MovieDetailBar(show: $show, index: $index, offset: $offset)
-                    .padding(.top, 5)
+                    
                 
                 GeometryReader{ g in
                     HStack {
                         ScrollView {
                             MovieDescriptionView(movieDetailVM: self.movieDetailVM, movie: self.$movie)
                                 .frame(width: g.frame(in : .global).width)
-                           
-                            
                         }
                         
                         ScrollView {
@@ -52,7 +62,6 @@ struct MovieDetailView: View {
                             
                             withAnimation {
                                 if value.translation.width > 50 {
-                                    self.show = true
                                     self.index = 1
                                     self.offset = self.width
                                 }
@@ -61,6 +70,7 @@ struct MovieDetailView: View {
                                     self.index = 2
                                     self.offset = 0
                                 }
+    
                             }
                         })
                     )
@@ -70,3 +80,9 @@ struct MovieDetailView: View {
     }
 }
 
+
+struct MovieDetailView_Previews: PreviewProvider {
+    static var previews: some View {
+        MovieDetailView(movie: Movie())
+    }
+}

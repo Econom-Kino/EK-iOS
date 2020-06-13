@@ -26,7 +26,7 @@ struct Movie: Identifiable, Decodable {
     
     init() {
         self.id = -1
-        self.name = "Test"
+        self.name = "Тунель. Небезпечно для життя"
         self.poster_link = "https://image.tmdb.org/t/p/w600_and_h900_bestv2/w0TeZ0oGijYVubQYAakm7eo41Gn.jpg"
     }
 }

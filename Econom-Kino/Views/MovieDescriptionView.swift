@@ -42,7 +42,7 @@ struct MovieDescriptionView: View {
                 Text("\(movie.country_production ?? "")").font(.system(size: 18))
             }
             HStack (alignment: .top) {
-                Text("Премя'ра:").font(.system(size: 18, weight: .medium))
+                Text("Премє'ра:").font(.system(size: 18, weight: .medium))
                 Text("\(movie.release_date ?? "")").font(.system(size: 18))
             }
 

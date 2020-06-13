@@ -10,7 +10,7 @@ import SwiftUI
 
 struct MoviesView: View {
     
-    @ObservedObject private var moviesVM = MoviesViewModel()
+    @ObservedObject private var moviesVM = MoviesViewModel.shared
 
     init() {
         UITableView.appearance().separatorColor = .clear
@@ -27,8 +27,8 @@ struct MoviesView: View {
             VStack (alignment: .leading) {
                 if self.moviesVM.show || self.moviesVM.movies.count == 0 {
                     VStack () {
-                        SearchView(moviesVM: self.moviesVM)
-                        CalendarView(movieVM: self.moviesVM)
+                        SearchView()
+                        CalendarView()
                     }
                     .padding(.horizontal)
                     .padding(.top, 10)
@@ -73,16 +73,6 @@ struct MoviesView: View {
                     
                 }
             }
-        }
-        .onAppear {
-            print("Generating calendar..")
-            self.moviesVM.makeCalendar()
-            self.moviesVM.updateChoosenDateStr()
-            
-            print("Init Fetching...")
-            self.moviesVM.fetchMovies(day: self.moviesVM.week[self.moviesVM.chosenDate].day,
-                                      month: self.moviesVM.week[self.moviesVM.chosenDate].month,
-                                      year: self.moviesVM.week[self.moviesVM.chosenDate].year)
         }
         .navigationBarTitle("Movies")
         .navigationBarHidden(true)

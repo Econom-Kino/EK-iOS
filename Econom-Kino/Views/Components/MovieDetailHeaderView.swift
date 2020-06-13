@@ -16,19 +16,12 @@ struct HeaderMovieDetailView: View {
     
     var body: some View {
         VStack () {
-            Text("\(movie.name)")
-                .font(.system(size: 32))
-                .fontWeight(.medium)
-                .foregroundColor(Color.white)
-                .lineLimit(self.show ? 3 : 1)
-                .scaleEffect(self.show ? 1 : 0.6)
-            
             if self.show {
                 ZStack (alignment: .bottom) {
                     WebImage(url: URL(string: "\(movie.poster_link)"))
                         .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: UIScreen.width / 2.3)
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: UIScreen.width / 2.3, height: UIScreen.width / 1.5)
                         .cornerRadius(25)
                         .shadow(color: Color.white.opacity(0.1), radius: 10, x: 2, y: 2)
                     Button(action: {
@@ -57,6 +50,28 @@ struct HeaderMovieDetailView: View {
                 
             }
             
+            Text("\(movie.name)")
+                .font(.system(size: 32))
+                .fontWeight(.medium)
+                .foregroundColor(Color.white)
+                .scaleEffect(self.show ? 1 : 0.8)
+                .multilineTextAlignment(.center)
+                
+            
+            
+            if !self.show {
+                Button(action: {
+                    withAnimation {
+                        self.show = true
+                    }
+                }) {
+                    Image(systemName: "chevron.down")
+                        .padding(.vertical, -5)
+                        .foregroundColor(Color.white)
+                    
+                }.buttonStyle(PlainButtonStyle())
+            }
+            
             
             
         }.padding()
@@ -82,5 +97,11 @@ struct HeaderBgView: View {
         }.edgesIgnoringSafeArea(.top)
         
         
+    }
+}
+
+struct MovieDetailHeaderView_Previews: PreviewProvider {
+    static var previews: some View {
+        HeaderMovieDetailView(movie: .constant(Movie()), show: .constant(true))
     }
 }

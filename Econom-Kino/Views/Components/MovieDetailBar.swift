@@ -32,7 +32,6 @@ struct MovieDetailBar: View {
                 Button(action: {
                     print("Опис")
                     withAnimation {
-                        self.show = true
                         self.index = 1
                         self.offset = self.width
                     }
