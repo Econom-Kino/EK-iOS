@@ -27,7 +27,6 @@ struct RoundedCorner: Shape {
 }
 
 struct PosterView: View {
-    @ObservedObject var posterVM = PosterViewModel()
     var movie: Movie
     
     var body: some View {
@@ -72,7 +71,7 @@ struct PosterView: View {
                     
                     VStack (alignment: .leading, spacing: 5) {
                         Text("Вік: \(movie.age ?? false ? "18+" : "0+")")
-                        Text("Жанр: \(posterVM.movieGenresToString(genres: movie.genre_names ?? []))")
+                        Text("Жанр: \(movieGenresToString(genres: movie.genre_names ?? []))")
                             .lineLimit(1)
                         Text("Imdb: \(String(format: "%.1f", movie.rating ?? 0.0))")
                         Text("Тривалість: \(movie.duration ?? 0)")

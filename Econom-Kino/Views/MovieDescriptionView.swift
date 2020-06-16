@@ -30,7 +30,7 @@ struct MovieDescriptionView: View {
             HStack (alignment: .top) {
                 Text("Жанр:")
                     .font(.system(size: 18, weight: .medium))
-                Text("\(movieDetailVM.movieGenresToString(genres: movie.genre_names ?? []))")
+                Text("\(movieGenresToString(genres: movie.genre_names ?? []))")
                     .font(.system(size: 18))
             }
             HStack (alignment: .top) {
