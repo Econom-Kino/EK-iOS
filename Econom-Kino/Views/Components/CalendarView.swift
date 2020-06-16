@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct CalendarView: View {
-    @ObservedObject var movieVM = MoviesViewModel.shared
+    @ObservedObject var movieVM = MovieListViewModel.shared
 
     
     var body: some View {

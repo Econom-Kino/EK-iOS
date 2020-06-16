@@ -17,7 +17,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             TabView {
-                MoviesView()
+                MovieListView()
                     .tabItem {
                         Image(systemName: "film")
                             .font(.system(size: 24))

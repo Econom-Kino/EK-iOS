@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct SearchView: View {
-    @ObservedObject var moviesVM = MoviesViewModel.shared
+    @ObservedObject var moviesVM = MovieListViewModel.shared
     
     var body: some View {
         HStack () {

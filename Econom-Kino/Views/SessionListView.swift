@@ -8,16 +8,16 @@
 
 import SwiftUI
 
-struct SessionsView: View {
-    
+struct SessionListView: View {
+    @ObservedObject var cinemasVM = CinemasViewModel.shared
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/).padding()
+        Text("\(cinemasVM.cinemas[0].name ?? " ")").padding()
     }
 }
 
-struct SessionsView_Previews: PreviewProvider {
+struct SessionListView_Previews: PreviewProvider {
     static var previews: some View {
-        SessionsView()
+        SessionListView()
     }
 }

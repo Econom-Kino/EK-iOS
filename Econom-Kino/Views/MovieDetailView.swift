@@ -51,7 +51,7 @@ struct MovieDetailView: View {
                         }
                         
                         ScrollView {
-                            SessionsView().frame(width: g.frame(in : .global).width)
+                            SessionListView().frame(width: g.frame(in : .global).width)
                         }
                         
                         Text(" ").frame(width: g.frame(in : .global).width)

@@ -9,8 +9,8 @@
 import Foundation
 
 
-class MoviesViewModel: ObservableObject {
-    static let shared = MoviesViewModel()
+class MovieListViewModel: ObservableObject {
+    static let shared = MovieListViewModel()
     
     @Published var searchText: String = ""
     @Published var movies: [Movie] = []

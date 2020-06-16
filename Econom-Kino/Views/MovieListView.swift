@@ -8,9 +8,9 @@
 
 import SwiftUI
 
-struct MoviesView: View {
+struct MovieListView: View {
     
-    @ObservedObject private var moviesVM = MoviesViewModel.shared
+    @ObservedObject private var moviesVM = MovieListViewModel.shared
 
     init() {
         UITableView.appearance().separatorColor = .clear
@@ -79,8 +79,8 @@ struct MoviesView: View {
     }
 }
 
-struct MoviesView_Previews: PreviewProvider {
+struct MovieListView_Previews: PreviewProvider {
     static var previews: some View {
-        MoviesView()
+        MovieListView()
     }
 }
