@@ -9,7 +9,6 @@
 import SwiftUI
 
 struct MovieDescriptionView: View {
-    @ObservedObject var movieDetailVM: MovieDetailViewModel
     @Binding var movie: Movie
 
     
@@ -80,6 +79,6 @@ struct MovieDescriptionView: View {
 
 struct MovieDescriptionView_Previews: PreviewProvider {
     static var previews: some View {
-        MovieDescriptionView(movieDetailVM: MovieDetailViewModel(), movie: .constant(Movie()))
+        MovieDescriptionView(movie: .constant(Movie()))
     }
 }

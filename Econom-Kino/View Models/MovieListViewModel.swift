@@ -19,7 +19,7 @@ class MovieListViewModel: ObservableObject {
     @Published var chooseDateStr = ""
     @Published var show = true
     
-     private init() {}
+    private init() {}
     
     func fetchMovies(day: String, month: String, year: String) {
         let apiUrl = "https://ekinoback.herokuapp.com/movies/date/\(year)/\(day)/\(month)"

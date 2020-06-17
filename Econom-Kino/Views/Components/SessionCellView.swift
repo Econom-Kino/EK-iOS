@@ -14,14 +14,14 @@ struct SessionCellView: View {
     
     var body: some View {
         HStack (alignment: .center) {
-            Text("16:00")
+            Text("\(session.start_time[11 ..< 16])")
                 .frame(width: (UIScreen.width - 20) * (1.5/10))
-            Text("160 грн.")
+            Text("\(session.price ?? 0) грн.")
                 .frame(width: (UIScreen.width - 20) * (2/10))
-            Text("4Dx")
+            Text("\(session.technology ?? "-")")
                 .frame(width: (UIScreen.width - 20) * (1.5/10))
-            Text("Кінопалац ім. О.Довженка")
-                .frame(width: (UIScreen.width - 20) * (3/10))
+            Text("\(CinemasViewModel.shared.getCinemaNameByPlaceID(session.cinema ?? ""))")
+                .frame(width: (UIScreen.width - 20) * (3/10), alignment: .leading)
                 .font(.system(size: 14))
                 .multilineTextAlignment(.leading)
         }
@@ -48,6 +48,6 @@ struct SessionCellBgView: View {
 
 struct SessionCellView_Previews: PreviewProvider {
     static var previews: some View {
-        SessionCellView(session: Session(id: 1, cinema: "Multiplex", movie: 512, price: 123, start_time: "20:30", ticket_link: "https://ekinoback.herokuapp.com/", language: "Українська", technology: "3D"))
+        SessionCellView(session: Session(id: 1, cinema: "ChIJ4dGDScndOkcRK6iYsuY5rCk", movie: 512, price: 120, start_time: "2020-06-17T17:00:00+03:00", ticket_link: "https://ekinoback.herokuapp.com/", language: "Українська", technology: "3D"))
     }
 }

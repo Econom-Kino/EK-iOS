@@ -8,12 +8,12 @@
 
 import Foundation
 
-struct Session: Identifiable, Decodable {
+struct Session: Identifiable, Decodable, Hashable {
     var id: Int
     var cinema: String?
     var movie: Int
     var price: Int?
-    var start_time: String?
+    var start_time: String
     var ticket_link: String?
     var language: String?
     var technology: String?

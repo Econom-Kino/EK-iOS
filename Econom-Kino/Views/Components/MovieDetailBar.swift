@@ -30,7 +30,6 @@ struct MovieDetailBar: View {
             
             HStack (spacing: 0) {
                 Button(action: {
-                    print("Опис")
                     withAnimation {
                         self.index = 1
                         self.offset = self.width
@@ -56,7 +55,6 @@ struct MovieDetailBar: View {
                 }.buttonStyle(PlainButtonStyle())
                 
                Button(action: {
-                    print("Сеанси")
                     withAnimation {
                         self.show = false
                         self.index = 2

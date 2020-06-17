@@ -10,7 +10,9 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct MovieDetailView: View {
-    @ObservedObject var movieDetailVM = MovieDetailViewModel()
+    @ObservedObject var movieDetailVM = MovieDetailViewModel.shared
+    var moviesVM = MovieListViewModel.shared
+    
     @State var movie: Movie
     
     @State var show: Bool = true
@@ -46,12 +48,13 @@ struct MovieDetailView: View {
                 GeometryReader{ g in
                     HStack {
                         ScrollView {
-                            MovieDescriptionView(movieDetailVM: self.movieDetailVM, movie: self.$movie)
+                            MovieDescriptionView(movie: self.$movie)
                                 .frame(width: g.frame(in : .global).width)
                         }
                         
                         ScrollView {
-                            SessionListView().frame(width: g.frame(in : .global).width)
+                            SessionListView()
+                                .frame(width: g.frame(in : .global).width)
                         }
                         
                         Text(" ").frame(width: g.frame(in : .global).width)
@@ -76,6 +79,13 @@ struct MovieDetailView: View {
                     )
                 }
             }
+        }.onAppear {
+                print("Fetching movie sessions...")
+                self.movieDetailVM.fetchSessions(day: self.moviesVM.week[self.moviesVM.chosenDate].day,
+                                                 month: self.moviesVM.week[self.moviesVM.chosenDate].month,
+                                                 year: self.moviesVM.week[self.moviesVM.chosenDate].year,
+                                                 movie: self.movie.id)
+                
         }
     }
 }

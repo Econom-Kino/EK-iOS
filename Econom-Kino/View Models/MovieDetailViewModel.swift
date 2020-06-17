@@ -9,12 +9,17 @@
 import Foundation
 
 class MovieDetailViewModel: ObservableObject {
+    static let shared = MovieDetailViewModel()
+    
     @Published var sessions: [Session] = []
     
     
-    func fetchSessions() {
-        let apiUrl = "https://ekinoback.herokuapp.com/cinemas"
+    private init() {}
+    
+    func fetchSessions(day: String, month: String, year: String, movie: Int) {
+        let apiUrl = "https://ekinoback.herokuapp.com/movies/\(movie)/date/\(year)/\(day)/\(month)/sessions"
         sessions.removeAll()
+        print(apiUrl)
         
         guard let url = URL(string: apiUrl) else { return }
         
