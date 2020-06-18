@@ -24,27 +24,31 @@ struct HeaderMovieDetailView: View {
                         .frame(width: UIScreen.width / 2.3, height: UIScreen.width / 1.5)
                         .cornerRadius(25)
                         .shadow(color: Color.white.opacity(0.1), radius: 10, x: 2, y: 2)
-                    Button(action: {
-                        print("Trailer button pressed")
-                    }) {
-                        ZStack (alignment: .leading) {
-                            Rectangle()
-                                .fill(Color.mainGray)
-                                .opacity(0.75)
-                                .frame(width: UIScreen.width / 2.3, height: 45)
-                                .cornerRadius(25, corners: [.bottomRight, .bottomLeft])
-                            HStack (spacing: 30) {
-                                Image(systemName: "play.fill")
-                                    .foregroundColor(Color.mainDarkGray)
-                                    .font(.system(size: 28))
-                                Text("Трейлер")
-                                    .foregroundColor(Color.mainDarkGray)
-                                    .font(.system(size: 22))
-                            }.padding(.leading, 20)
+                    if movie.trailer_link != nil {
+                        Button(action: {
                             
-                            
-                        }.padding(.top, 10)
-                    }.buttonStyle(PlainButtonStyle())
+                            print("Trailer button pressed")
+                            UIApplication.shared.open(URL(string: self.movie.trailer_link!)!)
+                        }) {
+                            ZStack (alignment: .leading) {
+                                Rectangle()
+                                    .fill(Color.mainGray)
+                                    .opacity(0.75)
+                                    .frame(width: UIScreen.width / 2.3, height: 45)
+                                    .cornerRadius(25, corners: [.bottomRight, .bottomLeft])
+                                HStack (spacing: 30) {
+                                    Image(systemName: "play.fill")
+                                        .foregroundColor(Color.mainDarkGray)
+                                        .font(.system(size: 28))
+                                    Text("Трейлер")
+                                        .foregroundColor(Color.mainDarkGray)
+                                        .font(.system(size: 22))
+                                }.padding(.leading, 20)
+                                
+                                
+                            }.padding(.top, 10)
+                        }.buttonStyle(PlainButtonStyle())
+                    }
                 }
                 .transition(AnyTransition.opacity.combined(with: .move(edge: .top)))
                 
