@@ -10,11 +10,38 @@ import SwiftUI
 
 struct SessionListView: View {
     @ObservedObject var movieDetailVM = MovieDetailViewModel.shared
+    @State var showFilters: Bool = true
     
     
     
     var body: some View {
-        VStack (alignment: .leading) {
+        VStack () {
+            VStack (alignment: .leading, spacing: 0) {
+                HStack {
+                    Text("Фільтри:")
+                        .font(.system(size: 21))
+                    Spacer()
+                    Image(systemName: self.showFilters ? "chevron.up" : "chevron.down")
+                    
+                }.foregroundColor(Color.mainDarkGray)
+                
+                Rectangle()
+                    .fill(Color.mainDarkGray)
+                    .frame(height: 1)
+            }
+             .onTapGesture {
+                withAnimation {
+                    self.showFilters.toggle()
+                }
+            }
+            .padding(.horizontal)
+            .padding(.top)
+            
+            
+            if showFilters {
+               SessionFiltersView()
+            }
+            
             
             VStack (alignment: .leading, spacing: 0) {
                 Text("Сеанси:")

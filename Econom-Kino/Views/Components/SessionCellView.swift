@@ -27,23 +27,9 @@ struct SessionCellView: View {
         }
         .padding(.horizontal)
         .frame(width: UIScreen.width - 20, height: 40)
-        .background(SessionCellBgView())
+        .background(DefaultBackgroundView())
     }
 }
-
-struct SessionCellBgView: View {
-    var body: some View {
-        ZStack {
-            Rectangle()
-            .fill(Color.mainGray)
-            .cornerRadius(20)
-            .shadow(color: Color.mainBlack.opacity(0.2), radius: 5, x: 3, y: 3)
-            .shadow(color: Color.white.opacity(0.7), radius: 5, x: -3, y: -3)
-            .transition(AnyTransition.opacity.combined(with: .move(edge: .leading)))
-        }
-    }
-}
-
 
 
 struct SessionCellView_Previews: PreviewProvider {
