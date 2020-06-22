@@ -19,29 +19,29 @@ struct ContentView: View {
             TabView {
                 MovieListView()
                     .tabItem {
-                        Image(systemName: "film")
-                            .font(.system(size: 24))
+                        Image("afishaIcon")
+                            .font(.system(size: 32))
                         Text("Афіша")
                     }.tag(0)
                 
                 Text("Анонси")
                     .tabItem {
-                        Image(systemName: "film")
-                             .font(.system(size: 24))
+                        Image("anouncesIcon")
+                             .font(.system(size: 32))
                         Text("Анонси")
                     }.tag(1)
                 
                 Text("Кінотеатри")
                     .tabItem {
-                        Image(systemName: "film")
-                             .font(.system(size: 24))
+                        Image("cinemasIcon")
+                             .font(.system(size: 32))
                         Text("Кінотеатри")
                     }.tag(2)
                 
                 Text("Налаштування")
                     .tabItem {
-                        Image(systemName: "film")
-                            .font(.system(size: 24))
+                        Image("settingsIcon")
+                            .font(.system(size: 32))
                         Text("Налаштування")
                     }.tag(3)
             }

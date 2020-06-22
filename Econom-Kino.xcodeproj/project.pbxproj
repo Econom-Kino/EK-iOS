@@ -129,16 +129,17 @@
 		8412981A242438A8003354EB /* Econom-Kino */ = {
 			isa = PBXGroup;
 			children = (
-				84E971BE2498F52700C8B8BF /* Main */,
 				84E69D0A242E255F00C1381E /* Models */,
 				8412982F242438CF003354EB /* View Models */,
 				841298302424392F003354EB /* Views */,
 				84E971BF2498FC4F00C8B8BF /* Helpers */,
 				8412983424244693003354EB /* Extentions */,
+				8412981D242438A8003354EB /* SceneDelegate.swift */,
+				8412981B242438A8003354EB /* AppDelegate.swift */,
+				84D79E10246F110D00ADE4E0 /* Assets.xcassets */,
 				84129826242438B0003354EB /* LaunchScreen.storyboard */,
 				84129829242438B0003354EB /* Info.plist */,
 				84129823242438B0003354EB /* Preview Content */,
-				84D79E10246F110D00ADE4E0 /* Assets.xcassets */,
 			);
 			path = "Econom-Kino";
 			sourceTree = "<group>";
@@ -166,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				841298312424396A003354EB /* Components */,
+				8412981F242438A8003354EB /* ContentView.swift */,
 				84022310245361A2001346CA /* MovieListView.swift */,
 				8490413B248D32D8002070BE /* MovieDetailView.swift */,
 				84BFDCD3249276E300C9177E /* MovieDescriptionView.swift */,
@@ -209,16 +211,6 @@
 				84A3CBFF2497A33A0015A694 /* Cinema.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		84E971BE2498F52700C8B8BF /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				8412981F242438A8003354EB /* ContentView.swift */,
-				8412981D242438A8003354EB /* SceneDelegate.swift */,
-				8412981B242438A8003354EB /* AppDelegate.swift */,
-			);
-			path = Main;
 			sourceTree = "<group>";
 		};
 		84E971BF2498FC4F00C8B8BF /* Helpers */ = {
