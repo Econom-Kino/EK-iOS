@@ -67,14 +67,14 @@ struct SessionFiltersView: View {
 struct SortingFilterView: View {
     @ObservedObject var movieDetailVM = MovieDetailViewModel.shared
     @State var expand: Bool = false
-    @State var sortings = ["Ціна (дешевші)", "Ціна (дорожчі)", "Найближчі сеанси", "Рейтинг кінотеатру"]
+    @State var sorting = "Ціна (дешевші)"
     
     
     var body: some View {
         VStack (alignment: .leading) {
             HStack {
                 
-                Text("Сортувати:\n\(sortings[0])")
+                Text("Сортувати:\n\(sorting)")
                     .frame(alignment: .leading)
                     .font(.system(size: 16))
                 Spacer()
@@ -90,47 +90,56 @@ struct SortingFilterView: View {
             
             if self.expand {
                 VStack (alignment: .leading, spacing: 15) {
-                    Button(action: {
-                        let element = self.sortings.remove(at: 1)
-                        self.sortings.insert(element, at: 0)
-
-                        withAnimation {
-                            self.expand.toggle()
+                    
+                    if self.sorting != "Ціна (дешевші)" {
+                        Button(action: {
+                            self.sorting = "Ціна (дешевші)"
+                            withAnimation {
+                                self.movieDetailVM.sortSessions(.cheaper)
+                            }
+                            print(self.sorting)
+                        }) {
+                            Text("Ціна (дешевші)")
                         }
-                        print(self.sortings)
-                    }) {
-                        Text("\(sortings[1])")
                     }
                     
-                    Button(action: {
-                        let element = self.sortings.remove(at: 2)
-                        self.sortings.insert(element, at: 0)
-                        withAnimation {
-                            self.expand.toggle()
+                    if self.sorting != "Ціна (дорожчі)" {
+                        Button(action: {
+                            self.sorting = "Ціна (дорожчі)"
+                            withAnimation {
+                                self.movieDetailVM.sortSessions(.expensive)
+                            }
+                        }) {
+                            Text("Ціна (дорожчі)")
                         }
-                    }) {
-                        Text("\(sortings[2])")
                     }
                     
-                    Button(action: {
-                        let element = self.sortings.remove(at: 3)
-                        self.sortings.insert(element, at: 0)
-                        withAnimation {
-                            self.expand.toggle()
+                    if self.sorting != "Найближчі сеанси" {
+                        Button(action: {
+                            self.sorting = "Найближчі сеанси"
+                            withAnimation {
+                                self.movieDetailVM.sortSessions(.time)
+                            }
+                        }) {
+                            Text("Найближчі сеанси")
                         }
-                    }) {
-                        Text("\(sortings[3])")
+                    }
+                    
+                    if self.sorting != "Рейтинг кінотеатру" {
+                        Button(action: {
+                            self.sorting = "Рейтинг кінотеатру"
+                            withAnimation {
+                                self.movieDetailVM.sortSessions(.cinemaRating)
+                            }
+                        }) {
+                            Text("Рейтинг кінотеатру")
+                        }
                     }
                 }
             }
-            
-        }
-         .padding(.bottom, expand ? 15 : 0)
-         .padding(.horizontal, 15)
+        }.padding(.horizontal, 15)
+         .padding(.bottom, self.expand ? 10 : 0)
          .background(DefaultBackgroundView())
-        
-        
-        
     }
 }
 

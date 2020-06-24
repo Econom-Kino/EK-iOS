@@ -8,6 +8,13 @@
 
 import Foundation
 
+enum Sortings {
+    case time
+    case cheaper
+    case expensive
+    case cinemaRating
+}
+
 class MovieDetailViewModel: ObservableObject {
     static let shared = MovieDetailViewModel()
     
@@ -15,6 +22,7 @@ class MovieDetailViewModel: ObservableObject {
     
     
     private init() {}
+    
     
     func fetchSessions(day: String, month: String, year: String, movie: Int) {
         let apiUrl = "https://ekinoback.herokuapp.com/movies/\(movie)/date/\(year)/\(day)/\(month)/sessions"
@@ -44,5 +52,27 @@ class MovieDetailViewModel: ObservableObject {
                 print("HTTPURLResponse code: \(response.statusCode)")
             }
         }.resume()
+    }
+    
+    func sortSessions(_ sortType: Sortings) {
+        switch sortType {
+            case .cheaper:
+                self.sessions.sort(by: {$0.price! < $1.price!})
+            
+            case .expensive:
+                self.sessions.sort(by: {$0.price! > $1.price!})
+            
+            case .time:
+                let formatter = ISO8601DateFormatter()
+                self.sessions.sort(by: {
+                    formatter.date(from: $0.start_time)! < formatter.date(from: $1.start_time)!
+                
+                })
+            
+            case .cinemaRating:
+                self.sessions.sort(by: {
+                    CinemasViewModel.shared.getCinemaNameByPlaceID($0.cinema!) > CinemasViewModel.shared.getCinemaNameByPlaceID($1.cinema!)
+                })
+        }
     }
 }
