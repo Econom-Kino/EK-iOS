@@ -174,8 +174,6 @@
 				8412981F242438A8003354EB /* ContentView.swift */,
 				84022310245361A2001346CA /* MovieListView.swift */,
 				8490413B248D32D8002070BE /* MovieDetailView.swift */,
-				84BFDCD3249276E300C9177E /* MovieDescriptionView.swift */,
-				847308492493BC920034DB4A /* SessionListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -183,17 +181,9 @@
 		841298312424396A003354EB /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				84EEC78B249CD0C700902536 /* DefaultBackgroundView.swift */,
-				84BFDCD524927B2600C9177E /* DefaultTextOnBgView.swift */,
-				841298322424398C003354EB /* PosterView.swift */,
-				84346E9B24866CEA0021D2B2 /* SearchView.swift */,
-				84A29B5B2487B44D00AF0F16 /* CalendarView.swift */,
-				84957CA62494BDE1000E9260 /* MovieDetailHeaderView.swift */,
-				84D74E362492C1E20094AC9E /* MovieDetailBar.swift */,
-				84A3CBF924979D780015A694 /* SessionCellView.swift */,
-				845D4E8C24A4F5F000678E69 /* SortingFilterView.swift */,
-				845D4E8E24A4F6EA00678E69 /* TechnologyFilterView.swift */,
-				84EEC789249CD03200902536 /* SessionFiltersView.swift */,
+				845D4E9024A5504A00678E69 /* Common */,
+				845D4E9124A5506A00678E69 /* Movie List */,
+				845D4E9324A550A900678E69 /* Movie Detail */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -206,6 +196,48 @@
 				84D74E342492B8B30094AC9E /* UIScreen.swift */,
 			);
 			path = Extentions;
+			sourceTree = "<group>";
+		};
+		845D4E9024A5504A00678E69 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				841298322424398C003354EB /* PosterView.swift */,
+				84EEC78B249CD0C700902536 /* DefaultBackgroundView.swift */,
+				84BFDCD524927B2600C9177E /* DefaultTextOnBgView.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		845D4E9124A5506A00678E69 /* Movie List */ = {
+			isa = PBXGroup;
+			children = (
+				84346E9B24866CEA0021D2B2 /* SearchView.swift */,
+				84A29B5B2487B44D00AF0F16 /* CalendarView.swift */,
+			);
+			path = "Movie List";
+			sourceTree = "<group>";
+		};
+		845D4E9324A550A900678E69 /* Movie Detail */ = {
+			isa = PBXGroup;
+			children = (
+				845D4E9424A550E100678E69 /* Filters */,
+				84BFDCD3249276E300C9177E /* MovieDescriptionView.swift */,
+				84957CA62494BDE1000E9260 /* MovieDetailHeaderView.swift */,
+				847308492493BC920034DB4A /* SessionListView.swift */,
+				84D74E362492C1E20094AC9E /* MovieDetailBar.swift */,
+				84A3CBF924979D780015A694 /* SessionCellView.swift */,
+			);
+			path = "Movie Detail";
+			sourceTree = "<group>";
+		};
+		845D4E9424A550E100678E69 /* Filters */ = {
+			isa = PBXGroup;
+			children = (
+				84EEC789249CD03200902536 /* SessionFiltersView.swift */,
+				845D4E8E24A4F6EA00678E69 /* TechnologyFilterView.swift */,
+				845D4E8C24A4F5F000678E69 /* SortingFilterView.swift */,
+			);
+			path = Filters;
 			sourceTree = "<group>";
 		};
 		84E69D0A242E255F00C1381E /* Models */ = {
