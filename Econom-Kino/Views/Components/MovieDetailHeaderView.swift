@@ -63,24 +63,22 @@ struct HeaderMovieDetailView: View {
                 
             
             
-            if !self.show {
-                Button(action: {
-                    withAnimation {
-                        self.show = true
-                    }
-                }) {
-                    Image(systemName: "chevron.down")
-                        .padding(.vertical, -5)
-                        .foregroundColor(Color.white)
-                    
-                }.buttonStyle(PlainButtonStyle())
-            }
-            
-            
+        
+            Button(action: {
+                withAnimation {
+                    self.show.toggle()
+                }
+            }) {
+                Image(systemName: self.show ? "chevron.up" : "chevron.down")
+                    .padding(.vertical, -5)
+                    .foregroundColor(Color.white)
+                    .transition(AnyTransition.opacity.combined(with: .move(edge: .top)))
+                
+            }.buttonStyle(PlainButtonStyle())
             
         }.padding()
-        .frame(width: UIScreen.width)
-            .background(HeaderBgView(poster_link: movie.poster_link))
+         .frame(width: UIScreen.width)
+         .background(HeaderBgView(poster_link: movie.poster_link))
     }
 }
 

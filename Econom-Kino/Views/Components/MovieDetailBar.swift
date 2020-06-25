@@ -33,6 +33,7 @@ struct MovieDetailBar: View {
                     withAnimation {
                         self.index = 1
                         self.offset = self.width
+                        self.show = true
                     }
                     
                 }) {
@@ -56,7 +57,6 @@ struct MovieDetailBar: View {
                 
                Button(action: {
                     withAnimation {
-                        self.show = false
                         self.index = 2
                         self.offset = 0
                     }

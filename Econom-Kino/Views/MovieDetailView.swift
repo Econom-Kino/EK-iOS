@@ -53,7 +53,7 @@ struct MovieDetailView: View {
                         }
                         
                         ScrollView {
-                            SessionListView()
+                            SessionListView(showPoster: self.$show)
                                 .frame(width: g.frame(in : .global).width)
                         }
                         
@@ -67,9 +67,9 @@ struct MovieDetailView: View {
                                 if value.translation.width > 50 {
                                     self.index = 1
                                     self.offset = self.width
+                                    self.show = true
                                 }
                                 if -value.translation.width > 50 {
-                                    self.show = false
                                     self.index = 2
                                     self.offset = 0
                                 }

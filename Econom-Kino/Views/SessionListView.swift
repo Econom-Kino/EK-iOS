@@ -10,7 +10,8 @@ import SwiftUI
 
 struct SessionListView: View {
     @ObservedObject var movieDetailVM = MovieDetailViewModel.shared
-    @State var showFilters: Bool = true
+    @State var showFilters: Bool = false
+    @Binding var showPoster: Bool
     
     
     
@@ -32,6 +33,10 @@ struct SessionListView: View {
              .onTapGesture {
                 withAnimation {
                     self.showFilters.toggle()
+                    
+                    if self.showFilters {
+                        self.showPoster = false
+                    }
                 }
             }
             .padding(.horizontal)
@@ -67,6 +72,6 @@ struct SessionListView: View {
 
 struct SessionListView_Previews: PreviewProvider {
     static var previews: some View {
-        SessionListView( )
+        SessionListView(showPoster: .constant(true))
     }
 }
