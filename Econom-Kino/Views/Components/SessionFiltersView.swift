@@ -19,16 +19,8 @@ struct SessionFiltersView: View {
                 
                 Spacer()
                 
-                HStack {
-                    Text("Сортувати по даті")
-                        .frame(width: (UIScreen.width - 50) / 3)
-                        .font(.system(size: 16))
-                    Spacer()
-                    Image(systemName: "arrowtriangle.right.fill")
-                }
-                 .padding(.horizontal, 15)
-                .frame(width: (UIScreen.width - 50) / 2, height: 65)
-                 .background(DefaultBackgroundView())
+                TechnologyFilterView()
+                
             }
             HStack {
                 HStack {
@@ -60,86 +52,6 @@ struct SessionFiltersView: View {
         }
         .padding()
         .foregroundColor(Color.mainDarkGray)
-    }
-}
-
-
-struct SortingFilterView: View {
-    @ObservedObject var movieDetailVM = MovieDetailViewModel.shared
-    @State var expand: Bool = false
-    @State var sorting = "Ціна (дешевші)"
-    
-    
-    var body: some View {
-        VStack (alignment: .leading) {
-            HStack {
-                
-                Text("Сортувати:\n\(sorting)")
-                    .frame(alignment: .leading)
-                    .font(.system(size: 16))
-                Spacer()
-                Image(systemName: expand ? "chevron.up" : "chevron.down")
-            }
-             .frame(width: (UIScreen.width - 50) / 2, height: 65)
-            .onTapGesture {
-                withAnimation {
-                    self.expand.toggle()
-                }
-                
-            }
-            
-            if self.expand {
-                VStack (alignment: .leading, spacing: 15) {
-                    
-                    if self.sorting != "Ціна (дешевші)" {
-                        Button(action: {
-                            self.sorting = "Ціна (дешевші)"
-                            withAnimation {
-                                self.movieDetailVM.sortSessions(.cheaper)
-                            }
-                            print(self.sorting)
-                        }) {
-                            Text("Ціна (дешевші)")
-                        }
-                    }
-                    
-                    if self.sorting != "Ціна (дорожчі)" {
-                        Button(action: {
-                            self.sorting = "Ціна (дорожчі)"
-                            withAnimation {
-                                self.movieDetailVM.sortSessions(.expensive)
-                            }
-                        }) {
-                            Text("Ціна (дорожчі)")
-                        }
-                    }
-                    
-                    if self.sorting != "Найближчі сеанси" {
-                        Button(action: {
-                            self.sorting = "Найближчі сеанси"
-                            withAnimation {
-                                self.movieDetailVM.sortSessions(.time)
-                            }
-                        }) {
-                            Text("Найближчі сеанси")
-                        }
-                    }
-                    
-                    if self.sorting != "Рейтинг кінотеатру" {
-                        Button(action: {
-                            self.sorting = "Рейтинг кінотеатру"
-                            withAnimation {
-                                self.movieDetailVM.sortSessions(.cinemaRating)
-                            }
-                        }) {
-                            Text("Рейтинг кінотеатру")
-                        }
-                    }
-                }
-            }
-        }.padding(.horizontal, 15)
-         .padding(.bottom, self.expand ? 10 : 0)
-         .background(DefaultBackgroundView())
     }
 }
 

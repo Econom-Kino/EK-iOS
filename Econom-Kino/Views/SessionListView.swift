@@ -54,7 +54,10 @@ struct SessionListView: View {
              .padding(.top)
             
             
-            ForEach(movieDetailVM.sessions, id: \.self) { s in
+            ForEach(movieDetailVM.sessions.filter({
+                movieDetailVM.choosenTechnologies.contains($0.technology ?? "")
+                
+            }), id: \.self) { s in
                 SessionCellView(session: s).padding(.vertical, 10)
             }
         }

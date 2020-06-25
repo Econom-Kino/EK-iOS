@@ -19,6 +19,7 @@ class MovieDetailViewModel: ObservableObject {
     static let shared = MovieDetailViewModel()
     
     @Published var sessions: [Session] = []
+    @Published var choosenTechnologies: [String] = ["2D", "3D", "4DX", "LUX"]
     
     
     private init() {}
