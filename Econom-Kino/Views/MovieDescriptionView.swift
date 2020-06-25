@@ -52,7 +52,7 @@ struct MovieDescriptionView: View {
                     ScrollView(.horizontal) {
                         HStack {
                             ForEach(movie.studio_names ?? [], id: \.self) {studio in
-                                HorisontalNamesView(name: studio.name)
+                                DefaultTextOnBgView(text: studio.name)
                             }
                         }.padding(.vertical, 12)
                     }
@@ -62,7 +62,7 @@ struct MovieDescriptionView: View {
                     ScrollView(.horizontal) {
                         HStack {
                             ForEach(movie.actors_names ?? [], id: \.self) {actor in
-                                HorisontalNamesView(name: actor.name)
+                                DefaultTextOnBgView(text: actor.name)
                             }
                         }.padding(.vertical, 12)
                     }

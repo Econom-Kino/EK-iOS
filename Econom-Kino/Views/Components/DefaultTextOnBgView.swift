@@ -8,15 +8,16 @@
 
 import SwiftUI
 
-struct HorisontalNamesView: View {
-    var name: String
+struct DefaultTextOnBgView: View {
+    var text: String
+    var fontSize: CGFloat = 14
     
     var body: some View {
-        Text("\(name)")
-        .padding(5)
-        .font(.system(size: 14, weight: .light))
+        Text("\(text)")
+            .padding(7)
+            .font(.system(size: fontSize, weight: .light))
             .foregroundColor(.mainBlack)
-        .background(BgView())
+            .background(DefaultBackgroundView())
     }
 }
 
@@ -29,8 +30,8 @@ struct BgView: View {
     }
 }
 
-struct HorisontalNamesView_Previews: PreviewProvider {
+struct DefaultTextOnBgView_Previews: PreviewProvider {
     static var previews: some View {
-        HorisontalNamesView(name: "Test Name")
+        DefaultTextOnBgView(text: "Test Name")
     }
 }
