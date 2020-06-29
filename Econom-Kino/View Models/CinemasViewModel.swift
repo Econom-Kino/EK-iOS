@@ -48,13 +48,13 @@ class CinemasViewModel: ObservableObject {
     }
     
     
-    func getCinemaNameByPlaceID (_ placeID: String) -> String {
+    func getCinemaNameByPlaceID (_ placeID: String) -> Cinema {
         for cinema in cinemas {
             if cinema.place_id == placeID {
-                return cinema.name ?? placeID
+                return cinema
             }
         }
         
-        return "Cinema not found"
+        return Cinema(id: nil, name: nil, address: nil, rating: nil, place_id: nil, longitude: nil, latitude: nil, website_link: nil, phone: nil)
     }
 }

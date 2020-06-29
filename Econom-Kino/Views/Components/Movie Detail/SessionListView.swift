@@ -60,7 +60,8 @@ struct SessionListView: View {
             
             
             ForEach(movieDetailVM.sessions.filter({
-                movieDetailVM.choosenTechnologies.contains($0.technology ?? "")
+                    movieDetailVM.choosenTechnologies.contains($0.technology ?? "") &&
+                    movieDetailVM.chooenCinemas.contains($0.cinema ?? "")
                 
             }), id: \.self) { s in
                 SessionCellView(session: s).padding(.vertical, 10)

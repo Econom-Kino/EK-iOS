@@ -20,7 +20,7 @@ struct SessionCellView: View {
                 .frame(width: (UIScreen.width - 20) * (2/10))
             Text("\(session.technology ?? "-")")
                 .frame(width: (UIScreen.width - 20) * (1.5/10))
-            Text("\(CinemasViewModel.shared.getCinemaNameByPlaceID(session.cinema ?? ""))")
+            Text("\(CinemasViewModel.shared.getCinemaNameByPlaceID(session.cinema ?? "").name ?? "")")
                 .frame(width: (UIScreen.width - 20) * (3/10), alignment: .leading)
                 .font(.system(size: 14))
                 .multilineTextAlignment(.leading)

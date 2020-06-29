@@ -22,20 +22,15 @@ struct SessionFiltersView: View {
                 TechnologyFilterView()
                 
             }
-            HStack {
-                HStack {
-                    Text("Обрати\nкінотеатри")
-                        .font(.system(size: 18))
-                    Spacer()
-                    Image(systemName: "arrowtriangle.right.fill")
-                }
-                .padding(.horizontal, 15)
-                .frame(width: (UIScreen.width - 50) * 0.82, height: 65)
-                .background(DefaultBackgroundView())
+            HStack (alignment: .top) {
+                CinemaFilterView()
                 
                 Spacer()
+                
                 Button(action: {
-                    self.movieDetailVM.sessions.remove(at: 1)
+                    withAnimation {
+                       self.movieDetailVM.setDefaultFilters()
+                    }
                 }) {
                     ZStack {
                         Image("dustBinIcon")

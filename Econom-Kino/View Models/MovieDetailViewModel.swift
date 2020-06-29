@@ -20,6 +20,7 @@ class MovieDetailViewModel: ObservableObject {
     
     @Published var sessions: [Session] = []
     @Published var choosenTechnologies: [String] = ["2D", "3D", "4DX", "LUX"]
+    @Published var chooenCinemas: [String] = ["ChIJl3xz8QnnOkcReSOln9d6RqY", "ChIJ4dGDScndOkcRK6iYsuY5rCk", "ChIJjW4PlXLdOkcRH4w0juRF9Ww", "ChIJG3CADybmOkcRkBn2_jOgbyA", "ChIJif8CqgvdOkcRxDok8ta8w7Y", "ChIJ3X6gOm3oOkcRirf_eSmxXSI"]
     
     
     private init() {}
@@ -72,8 +73,15 @@ class MovieDetailViewModel: ObservableObject {
             
             case .cinemaRating:
                 self.sessions.sort(by: {
-                    CinemasViewModel.shared.getCinemaNameByPlaceID($0.cinema!) > CinemasViewModel.shared.getCinemaNameByPlaceID($1.cinema!)
+                    CinemasViewModel.shared.getCinemaNameByPlaceID($0.cinema!).rating! > CinemasViewModel.shared.getCinemaNameByPlaceID($1.cinema!).rating!
                 })
         }
+    }
+    
+    func setDefaultFilters() {
+        self.choosenTechnologies = ["2D", "3D", "4DX", "LUX"]
+        self.chooenCinemas = ["ChIJl3xz8QnnOkcReSOln9d6RqY", "ChIJ4dGDScndOkcRK6iYsuY5rCk", "ChIJjW4PlXLdOkcRH4w0juRF9Ww", "ChIJG3CADybmOkcRkBn2_jOgbyA", "ChIJif8CqgvdOkcRxDok8ta8w7Y", "ChIJ3X6gOm3oOkcRirf_eSmxXSI"]
+        
+        print("Setted default filters")
     }
 }
