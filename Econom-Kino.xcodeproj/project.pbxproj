@@ -177,7 +177,6 @@
 				841298312424396A003354EB /* Components */,
 				8412981F242438A8003354EB /* ContentView.swift */,
 				84022310245361A2001346CA /* MovieListView.swift */,
-				8490413B248D32D8002070BE /* MovieDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -202,6 +201,16 @@
 			path = Extentions;
 			sourceTree = "<group>";
 		};
+		8426C33824AAABE700E68B54 /* Sessions */ = {
+			isa = PBXGroup;
+			children = (
+				845D4E9424A550E100678E69 /* Filters */,
+				847308492493BC920034DB4A /* SessionListView.swift */,
+				84A3CBF924979D780015A694 /* SessionCellView.swift */,
+			);
+			path = Sessions;
+			sourceTree = "<group>";
+		};
 		845D4E9024A5504A00678E69 /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -224,12 +233,11 @@
 		845D4E9324A550A900678E69 /* Movie Detail */ = {
 			isa = PBXGroup;
 			children = (
-				845D4E9424A550E100678E69 /* Filters */,
+				8426C33824AAABE700E68B54 /* Sessions */,
+				8490413B248D32D8002070BE /* MovieDetailView.swift */,
 				84BFDCD3249276E300C9177E /* MovieDescriptionView.swift */,
 				84957CA62494BDE1000E9260 /* MovieDetailHeaderView.swift */,
 				84D74E362492C1E20094AC9E /* MovieDetailBar.swift */,
-				847308492493BC920034DB4A /* SessionListView.swift */,
-				84A3CBF924979D780015A694 /* SessionCellView.swift */,
 			);
 			path = "Movie Detail";
 			sourceTree = "<group>";
