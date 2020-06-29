@@ -31,6 +31,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         print("Init Fetching cinemas")
         cinemasVM.fetchCinemas()
+        
+        print("Init Fetching cinema images")
+        cinemasVM.fetchCinemaImages()
+        
         return true
     }
 
