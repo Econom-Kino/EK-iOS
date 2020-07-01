@@ -24,6 +24,7 @@
 		8473084A2493BC920034DB4A /* SessionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847308492493BC920034DB4A /* SessionListView.swift */; };
 		8480F2F624AA3ADD00E3F74A /* CinemaFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8480F2F524AA3ADD00E3F74A /* CinemaFilterView.swift */; };
 		8490413C248D32D8002070BE /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8490413B248D32D8002070BE /* MovieDetailView.swift */; };
+		84919F9124AD428600F3F09C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84919F9024AD428600F3F09C /* Assets.xcassets */; };
 		84957CA72494BDE1000E9260 /* MovieDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84957CA62494BDE1000E9260 /* MovieDetailHeaderView.swift */; };
 		84A29B5C2487B44D00AF0F16 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A29B5B2487B44D00AF0F16 /* CalendarView.swift */; };
 		84A3CBFA24979D780015A694 /* SessionCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A3CBF924979D780015A694 /* SessionCellView.swift */; };
@@ -37,7 +38,6 @@
 		84CC90C324879CAF008A2B96 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CC90C224879CAF008A2B96 /* String.swift */; };
 		84D74E352492B8B30094AC9E /* UIScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D74E342492B8B30094AC9E /* UIScreen.swift */; };
 		84D74E372492C1E20094AC9E /* MovieDetailBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D74E362492C1E20094AC9E /* MovieDetailBar.swift */; };
-		84D79E11246F110D00ADE4E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84D79E10246F110D00ADE4E0 /* Assets.xcassets */; };
 		84D79E14246F129900ADE4E0 /* MovieListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D79E13246F129900ADE4E0 /* MovieListViewModel.swift */; };
 		84E69D09242E1DED00C1381E /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E69D08242E1DED00C1381E /* Color.swift */; };
 		84E971C12498FC9400C8B8BF /* MovieGenresToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E971C02498FC9400C8B8BF /* MovieGenresToString.swift */; };
@@ -68,6 +68,7 @@
 		847308492493BC920034DB4A /* SessionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionListView.swift; sourceTree = "<group>"; };
 		8480F2F524AA3ADD00E3F74A /* CinemaFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaFilterView.swift; sourceTree = "<group>"; };
 		8490413B248D32D8002070BE /* MovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailView.swift; sourceTree = "<group>"; };
+		84919F9024AD428600F3F09C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84957CA62494BDE1000E9260 /* MovieDetailHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDetailHeaderView.swift; sourceTree = "<group>"; };
 		84A29B5B2487B44D00AF0F16 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		84A3CBF924979D780015A694 /* SessionCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionCellView.swift; sourceTree = "<group>"; };
@@ -81,7 +82,6 @@
 		84CC90C224879CAF008A2B96 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		84D74E342492B8B30094AC9E /* UIScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScreen.swift; sourceTree = "<group>"; };
 		84D74E362492C1E20094AC9E /* MovieDetailBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailBar.swift; sourceTree = "<group>"; };
-		84D79E10246F110D00ADE4E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84D79E12246F121100ADE4E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84D79E13246F129900ADE4E0 /* MovieListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewModel.swift; sourceTree = "<group>"; };
 		84E69D08242E1DED00C1381E /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -125,6 +125,7 @@
 			children = (
 				8412981A242438A8003354EB /* Econom-Kino */,
 				84129819242438A8003354EB /* Products */,
+				84919F9024AD428600F3F09C /* Assets.xcassets */,
 				301CB069D754D6EEB49D8B6F /* Pods */,
 				2DB7CCFEEDA360B54913CD38 /* Frameworks */,
 			);
@@ -148,7 +149,6 @@
 				8412983424244693003354EB /* Extentions */,
 				8412981D242438A8003354EB /* SceneDelegate.swift */,
 				8412981B242438A8003354EB /* AppDelegate.swift */,
-				84D79E10246F110D00ADE4E0 /* Assets.xcassets */,
 				84129826242438B0003354EB /* LaunchScreen.storyboard */,
 				84129829242438B0003354EB /* Info.plist */,
 				84129823242438B0003354EB /* Preview Content */,
@@ -348,7 +348,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84129828242438B0003354EB /* LaunchScreen.storyboard in Resources */,
-				84D79E11246F110D00ADE4E0 /* Assets.xcassets in Resources */,
+				84919F9124AD428600F3F09C /* Assets.xcassets in Resources */,
 				84129825242438B0003354EB /* Preview Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -570,6 +570,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 86931386C0D4A435C2E4A7E0 /* Pods-Econom-Kino.debug.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Econom-Kino/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
@@ -589,6 +590,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 80B04DA1A2CCD4FEE9541F28 /* Pods-Econom-Kino.release.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Econom-Kino/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
