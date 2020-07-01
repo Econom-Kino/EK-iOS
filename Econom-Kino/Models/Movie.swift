@@ -8,7 +8,8 @@
 
 import Foundation
 
-struct Movie: Identifiable, Decodable {
+struct Movie: Hashable, Identifiable, Decodable {
+
     var id: Int
     var genre_names: [Genre]?
     var actors_names: [Actor]?
@@ -31,7 +32,7 @@ struct Movie: Identifiable, Decodable {
     }
 }
 
-struct Genre: Decodable {
+struct Genre: Decodable, Hashable{
     var id: Int
     var name: String
     var pseudo_id: Int

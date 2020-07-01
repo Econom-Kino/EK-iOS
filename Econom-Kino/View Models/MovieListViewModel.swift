@@ -17,7 +17,6 @@ class MovieListViewModel: ObservableObject {
     @Published var week: [Dates] = []
     @Published var chosenDate: Int = 0
     @Published var chooseDateStr = ""
-    @Published var show = true
     
     private init() {}
     

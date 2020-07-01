@@ -15,6 +15,8 @@
 		84129828242438B0003354EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84129826242438B0003354EB /* LaunchScreen.storyboard */; };
 		841298332424398C003354EB /* PosterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841298322424398C003354EB /* PosterView.swift */; };
 		8426C33724AAA89500E68B54 /* CinemaImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8426C33624AAA89500E68B54 /* CinemaImage.swift */; };
+		8426C33A24AAAC6F00E68B54 /* CinemaListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8426C33924AAAC6F00E68B54 /* CinemaListView.swift */; };
+		8426C33D24AAB33700E68B54 /* CinemaPosterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8426C33C24AAB33700E68B54 /* CinemaPosterView.swift */; };
 		84346E9C24866CEA0021D2B2 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84346E9B24866CEA0021D2B2 /* SearchView.swift */; };
 		844F4F132493F2410077F4EB /* MovieDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F4F122493F2410077F4EB /* MovieDetailViewModel.swift */; };
 		845D4E8D24A4F5F000678E69 /* SortingFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D4E8C24A4F5F000678E69 /* SortingFilterView.swift */; };
@@ -57,6 +59,8 @@
 		84129829242438B0003354EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		841298322424398C003354EB /* PosterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterView.swift; sourceTree = "<group>"; };
 		8426C33624AAA89500E68B54 /* CinemaImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaImage.swift; sourceTree = "<group>"; };
+		8426C33924AAAC6F00E68B54 /* CinemaListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaListView.swift; sourceTree = "<group>"; };
+		8426C33C24AAB33700E68B54 /* CinemaPosterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaPosterView.swift; sourceTree = "<group>"; };
 		84346E9B24866CEA0021D2B2 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		844F4F122493F2410077F4EB /* MovieDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewModel.swift; sourceTree = "<group>"; };
 		845D4E8C24A4F5F000678E69 /* SortingFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingFilterView.swift; sourceTree = "<group>"; };
@@ -177,6 +181,7 @@
 				841298312424396A003354EB /* Components */,
 				8412981F242438A8003354EB /* ContentView.swift */,
 				84022310245361A2001346CA /* MovieListView.swift */,
+				8426C33924AAAC6F00E68B54 /* CinemaListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -187,6 +192,7 @@
 				845D4E9024A5504A00678E69 /* Common */,
 				845D4E9124A5506A00678E69 /* Movie List */,
 				845D4E9324A550A900678E69 /* Movie Detail */,
+				8426C33B24AAB2FA00E68B54 /* CinemaList */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -209,6 +215,14 @@
 				84A3CBF924979D780015A694 /* SessionCellView.swift */,
 			);
 			path = Sessions;
+			sourceTree = "<group>";
+		};
+		8426C33B24AAB2FA00E68B54 /* CinemaList */ = {
+			isa = PBXGroup;
+			children = (
+				8426C33C24AAB33700E68B54 /* CinemaPosterView.swift */,
+			);
+			path = CinemaList;
 			sourceTree = "<group>";
 		};
 		845D4E9024A5504A00678E69 /* Common */ = {
@@ -391,6 +405,7 @@
 				84A3CBFC24979DD70015A694 /* Session.swift in Sources */,
 				845D4E8F24A4F6EA00678E69 /* TechnologyFilterView.swift in Sources */,
 				8412981C242438A8003354EB /* AppDelegate.swift in Sources */,
+				8426C33D24AAB33700E68B54 /* CinemaPosterView.swift in Sources */,
 				84CC90C324879CAF008A2B96 /* String.swift in Sources */,
 				84022311245361A2001346CA /* MovieListView.swift in Sources */,
 				84E69D09242E1DED00C1381E /* Color.swift in Sources */,
@@ -407,6 +422,7 @@
 				84EEC78A249CD03200902536 /* SessionFiltersView.swift in Sources */,
 				84A3CBFA24979D780015A694 /* SessionCellView.swift in Sources */,
 				84A3CBFE2497A0B00015A694 /* CinemasViewModel.swift in Sources */,
+				8426C33A24AAAC6F00E68B54 /* CinemaListView.swift in Sources */,
 				84A29B5C2487B44D00AF0F16 /* CalendarView.swift in Sources */,
 				845D4E8D24A4F5F000678E69 /* SortingFilterView.swift in Sources */,
 				84EEC78C249CD0C700902536 /* DefaultBackgroundView.swift in Sources */,

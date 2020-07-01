@@ -9,7 +9,7 @@
 import Foundation
 
 
-struct Cinema: Identifiable, Decodable {
+struct Cinema: Identifiable, Decodable, Hashable {
     var id: Int?
     var name: String?
     var address: String?
@@ -19,4 +19,16 @@ struct Cinema: Identifiable, Decodable {
     let latitude: Float?
     var website_link: String?
     var phone: String?
+    
+    init() {
+        self.id = nil
+        self.name = nil
+        self.address = nil
+        self.rating = nil
+        self.place_id = nil
+        self.longitude = nil
+        self.latitude = nil
+        self.website_link = nil
+        self.phone = nil
+    }
 }

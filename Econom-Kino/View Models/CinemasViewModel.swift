@@ -87,6 +87,12 @@ class CinemasViewModel: ObservableObject {
             }
         }
         
-        return Cinema(id: nil, name: nil, address: nil, rating: nil, place_id: nil, longitude: nil, latitude: nil, website_link: nil, phone: nil)
+        return Cinema()
+    }
+    
+    
+    func getCinemaRandomImage(placeId: String) -> String {
+        print(cinemaImages.filter({ $0.cinema == placeId }))
+        return cinemaImages.filter({ $0.cinema == placeId }).randomElement()?.image_link ?? "https://cdn-1.appleosophy.com/wp-content/uploads/2020/06/macOSBigSur-696x428.png"
     }
 }

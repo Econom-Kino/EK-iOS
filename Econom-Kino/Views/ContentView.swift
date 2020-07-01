@@ -31,7 +31,7 @@ struct ContentView: View {
                         Text("Анонси")
                     }.tag(1)
                 
-                Text("Кінотеатри")
+                NavigationView { CinemaListView() }
                     .tabItem {
                         Image("cinemasIcon")
                              .font(.system(size: 32))
