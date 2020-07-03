@@ -181,6 +181,7 @@
 				841298312424396A003354EB /* Components */,
 				8412981F242438A8003354EB /* ContentView.swift */,
 				84022310245361A2001346CA /* MovieListView.swift */,
+				8490413B248D32D8002070BE /* MovieDetailView.swift */,
 				8426C33924AAAC6F00E68B54 /* CinemaListView.swift */,
 			);
 			path = Views;
@@ -248,7 +249,6 @@
 			isa = PBXGroup;
 			children = (
 				8426C33824AAABE700E68B54 /* Sessions */,
-				8490413B248D32D8002070BE /* MovieDetailView.swift */,
 				84BFDCD3249276E300C9177E /* MovieDescriptionView.swift */,
 				84957CA62494BDE1000E9260 /* MovieDetailHeaderView.swift */,
 				84D74E362492C1E20094AC9E /* MovieDetailBar.swift */,
