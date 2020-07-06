@@ -32,11 +32,13 @@ struct ContentView: View {
                     }.tag(1)
                 
                 NavigationView { CinemaListView() }
+                    .navigationBarHidden(true)
                     .tabItem {
                         Image("cinemasIcon")
                              .font(.system(size: 32))
                         Text("Кінотеатри")
-                    }.tag(2)
+                    }
+                .tag(2)
                 
                 Text("Налаштування")
                     .tabItem {
@@ -45,7 +47,9 @@ struct ContentView: View {
                         Text("Налаштування")
                     }.tag(3)
             }
-        }.accentColor(Color.mainOrange)
+        }.navigationBarTitle("Cinemas")
+         .navigationBarHidden(true)
+         .accentColor(Color.mainOrange)
     }
 }
 

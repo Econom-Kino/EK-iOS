@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct CinemaImage: Decodable {
+struct CinemaImage: Decodable, Hashable {
     let cinema: String
     let image_link: String
 }

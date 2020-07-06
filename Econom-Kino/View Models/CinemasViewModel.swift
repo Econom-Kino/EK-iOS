@@ -13,7 +13,7 @@ class CinemasViewModel: ObservableObject {
     static let shared = CinemasViewModel()
     
     @Published var cinemas: [Cinema] = []
-    @Published var cinemaImages: [CinemaImage] = []
+    @Published var cinemaImages: [String : [String]] = [:]
     
     
     private init() {}
@@ -37,6 +37,12 @@ class CinemasViewModel: ObservableObject {
                 DispatchQueue.main.async {
                     do {
                         self.cinemas = try JSONDecoder().decode([Cinema].self, from: data)
+                        
+                        print("Init Fetching Cinema Images")
+                        for cinema in self.cinemas {
+                            self.fetchCinemaImages(placeId: cinema.place_id!)
+                        }
+                        
                     } catch let err {
                         print("Error: \(err)")
                     }
@@ -49,8 +55,8 @@ class CinemasViewModel: ObservableObject {
     }
     
     
-    func fetchCinemaImages() {
-        let apiUrl = "https://ekinoback.herokuapp.com/cinema-images"
+    func fetchCinemaImages(placeId: String) {
+        let apiUrl = "https://ekinoback.herokuapp.com/cinemas/\(placeId)/cinema-images"
         cinemaImages.removeAll()
         
         guard let url = URL(string: apiUrl) else { return }
@@ -66,8 +72,9 @@ class CinemasViewModel: ObservableObject {
                 guard let data = data else { return }
                 DispatchQueue.main.async {
                     do {
-                        self.cinemaImages = try JSONDecoder().decode([CinemaImage].self, from: data)
-                        print(self.cinemaImages)
+                        let cinamaImg = try JSONDecoder().decode([CinemaImage].self, from: data)
+                        self.cinemaImages[placeId] = cinamaImg.map({ $0.image_link })
+
                     } catch let err {
                         print("Error: \(err)")
                     }
@@ -92,7 +99,6 @@ class CinemasViewModel: ObservableObject {
     
     
     func getCinemaRandomImage(placeId: String) -> String {
-        print(cinemaImages.filter({ $0.cinema == placeId }))
-        return cinemaImages.filter({ $0.cinema == placeId }).randomElement()?.image_link ?? "https://cdn-1.appleosophy.com/wp-content/uploads/2020/06/macOSBigSur-696x428.png"
+        return cinemaImages["\(placeId)"]?.randomElement() ?? "https://cdn-1.appleosophy.com/wp-content/uploads/2020/06/macOSBigSur-696x428.png"
     }
 }

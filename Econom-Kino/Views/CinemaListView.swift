@@ -30,7 +30,7 @@ struct CinemaListView: View {
                     ZStack (alignment: .topLeading) {
                         CinemaPosterView(cinema: cinema)
                             .padding(.bottom)
-                        NavigationLink(destination: Text("Cinema Detail")) {
+                        NavigationLink(destination: CinemaDetailView(cinema: cinema)) {
                             EmptyView()
                         }
                         
